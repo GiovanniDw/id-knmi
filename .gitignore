@@ -122,8 +122,9 @@ dist
 .env.test.local
 .env.production.local
 
+.private-key.json
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-knmi-4a302bdaa0c3.json
