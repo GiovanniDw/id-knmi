@@ -26,7 +26,7 @@ const Map = (props) => {
 
 	const initialize = (mapid, el) => {
 		const embeddedMap = new window.google.maps.Map(el.current, {
-			center: { lng: 14.679273, lat: 49.89675 },
+			center: { lng: 5.1, lat: 52.1 },
 			zoom: 6,
 		});
 

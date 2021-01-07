@@ -37,21 +37,13 @@ app.get('/mapid', (_, res) => {
 	const band_viz = {
 		min: 0,
 		max: 0.0002,
-		opacity: 0.5,
+		opacity: 0.7,
 		palette: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
 	};
-	// const srtm = ee.Image('CGIAR/SRTM90_V4');
-	// const slope = ee.Terrain.slope(srtm);
-	// slope.getMap({ min: 0, max: 60 }, ({ mapid }) => res.send(mapid));
 
-	const layer = first.mean();
-
-	const srtm = ee.Image('CGIAR/SRTM90_V4');
-	const slope = ee.Terrain.slope(layer);
+	const layer = second.median();
 
 	layer.getMap(band_viz, ({ mapid }) => res.send(mapid));
-
-	// res.send({ google: image });
 });
 
 app.get('/map-settings', (_, res) => {
@@ -69,23 +61,14 @@ app.get('/map-settings', (_, res) => {
 		max: 0.0002,
 		bands: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
 	};
-	const median = first.reduce(ee.Reducer.median());
 
-	console.log(median);
-
-	// const mapLayer = Map.addLayer(first.mean(), band_viz, 'S5P N02');
-
-	// const srtm = ee.Image('CGIAR/SRTM90_V4');
-	// const slope = ee.Terrain.slope(srtm);
-	// slope.getMap({ min: 0, max: 60 }, ({ mapid }) => res.send(mapid));
-
-	const layer = first.mean();
+	const layer = second.mean();
 
 	const srtm = ee.Image('CGIAR/SRTM90_V4');
 	const slope = ee.Terrain.slope(median);
 
 	// const layers = slope.getMap(band_viz, ({ mapid }) => res.send(mapid));
-	slope.getMap(band_viz, (d) => res.send(d));
+	layer.getMap(band_viz, ({ mapid }) => res.send(mapid));
 
 	// res.send({ google: image });
 });
