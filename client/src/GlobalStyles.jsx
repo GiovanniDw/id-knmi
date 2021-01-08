@@ -6,10 +6,13 @@ export const colors = {
 	secondary: 'red',
 };
 
+export const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
+
 export const GlobalStyle = createGlobalStyle`
 ${normalize}
 * {
     box-sizing:border-box;
+	text-overflow: ellipsis; 
 }
 .App {
     padding:1em;
