@@ -10,6 +10,27 @@ export const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
 
 export const GlobalStyle = createGlobalStyle`
 ${normalize}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Source+Serif+Pro:wght@700&display=swap');
+
+
+h1,h2 {
+	font-family: 'Source Serif Pro', serif;
+	font-weight:bold;
+}
+h3 {
+
+	font-family: 'Montserrat', sans-serif;
+	font-weight:600;
+}
+
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+
 *, *::before, *:after {
     box-sizing:border-box;
 	text-overflow: ellipsis; 

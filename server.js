@@ -23,18 +23,18 @@ const port = process.env.PORT || 5000;
 const firstYear = { start: '2019-04-01', end: '2019-05-30' };
 const secondYear = { start: '2020-04-01', end: '2020-05-30' };
 
+const band_viz = {
+	min: 0,
+	max: 0.0002,
+	opacity: 0.7,
+	palette: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
+};
+
 app.get('/mapid-2019', (_, res) => {
 	const collection = ee
 		.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2')
 		.select('NO2_column_number_density')
 		.filterDate(firstYear.start, firstYear.end);
-
-	const band_viz = {
-		min: 0,
-		max: 0.0002,
-		opacity: 0.7,
-		palette: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
-	};
 
 	const layer = collection.median();
 
@@ -46,13 +46,6 @@ app.get('/mapid-2020', (_, res) => {
 		.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2')
 		.select('NO2_column_number_density')
 		.filterDate(secondYear.start, secondYear.end);
-
-	const band_viz = {
-		min: 0,
-		max: 0.0002,
-		opacity: 0.7,
-		palette: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
-	};
 
 	const layer = collection.median();
 

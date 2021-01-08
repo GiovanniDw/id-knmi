@@ -11,17 +11,17 @@ const ExplainNo = () => {
 		<GridContainer>
 			<GridRow>
 				<GridCol>
-					<h1>
+					<h2>
 						Wanneer een virus heel alle Nederlanders dwingt om thuis
 						te blijven, waarom blijft er een grote wolk van
 						luchtvervuiling boven Nederland hangen?{' '}
-					</h1>
+					</h2>
 				</GridCol>
 			</GridRow>
 			<GridRow>
 				<GridCol size='1'>NO2</GridCol>
 				<GridCol size='1'>
-					<h2>Wat is NO2? </h2>
+					<h3>Wat is NO2? </h3>
 					<p>
 						NO2 of stikstofdioxide is een stof die vrijkomt bij
 						verbrandingsprocessen. Wanneer mensen stikstofdioxide

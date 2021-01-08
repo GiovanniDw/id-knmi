@@ -37,6 +37,7 @@ export const GridContainer = styled.div`
 	/* margin: ${px2vw(32)}; */
 	/* height: 100%; */
 	/* max-width: 100%; */
+	border: 1px solid blue;
 `;
 
 export const GridRow = styled.div`

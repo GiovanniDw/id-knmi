@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import ee from '@google/earthengine';
-import { getMapId, getMapCollection } from '../services/EarthEngine';
+import { getMapId } from '../services/EarthEngine';
 import useScript from '../hooks/useScript';
 import styled from 'styled-components';
 
@@ -14,7 +14,7 @@ const secondYear = { start: '2020-04-01', end: '2020-05-30' };
 const Map = (props) => {
 	const mapRef = useRef();
 	const mapid = getMapId(props.mapURL);
-	const mapCollection = getMapCollection();
+
 	const [eeObject, setEeObject] = useState();
 
 	const eeScript = useScript(
@@ -44,7 +44,7 @@ const Map = (props) => {
 		}
 	}, [mapid]);
 
-	if (!mapRef && !mapCollection) return <Loading />;
+	if (!mapRef && !mapid) return <Loading />;
 
 	return (
 		<MapContainer className='map-container'>
@@ -56,11 +56,13 @@ const Map = (props) => {
 export default Map;
 
 const MapContainer = styled.div`
+	position: relative;
+	overflow: hidden;
 	width: 100%;
-	height: 100%;
-
+	height: 0;
+	padding-bottom: 56.25%;
 	.google-map {
-		min-height: 300px;
+		position: absolute;
 		width: 100%;
 		height: 100%;
 	}

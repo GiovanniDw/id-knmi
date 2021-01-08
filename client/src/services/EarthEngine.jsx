@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const getMapId = (url) => {
 	const [data, setData] = useState();
@@ -16,29 +16,6 @@ export const getMapId = (url) => {
 		callBackendAPI()
 			.then((res) => res)
 			.then((mapID) => setData(mapID))
-			.catch((err) => console.log(err));
-	}, []);
-
-	return data;
-};
-
-export const getMapCollection = () => {
-	const [data, setData] = useState();
-	const callBackendAPI = async () => {
-		const response = await fetch('/mapid-2020');
-
-		const body = await response.text();
-
-		if (response.status !== 200) {
-			throw Error(body.message);
-		}
-		console.log(response);
-		return body;
-	};
-	useEffect(() => {
-		callBackendAPI()
-			.then((res) => res)
-			.then((mapCollection) => setData(mapCollection))
 			.catch((err) => console.log(err));
 	}, []);
 

@@ -11,7 +11,7 @@ const LuchtVervuiling = () => {
 	return (
 		<GridContainer>
 			<GridRow>
-				<h1>Hoe zit het met luchtvervuiling in Nederland?</h1>
+				<h2>Hoe zit het met luchtvervuiling in Nederland?</h2>
 			</GridRow>
 			<GridRow>
 				<GridCol size='1'>
@@ -31,7 +31,7 @@ const LuchtVervuiling = () => {
 					</GridContainer>
 				</GridCol>
 				<GridCol size='1'>
-					<h2>Advies Dingen</h2>
+					<h3>Advies Dingen</h3>
 					<p>
 						NO2 of stikstofdioxide is een stof die vrijkomt bij
 						verbrandingsprocessen. Wanneer mensen stikstofdioxide
