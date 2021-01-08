@@ -6,22 +6,32 @@ import {
 	GridCol,
 } from '../Components/StyledComponents';
 
-const ExplainNo = () => {
+import Map from '../Components/Map';
+const LuchtVervuiling = () => {
 	return (
 		<GridContainer>
 			<GridRow>
-				<GridCol>
-					<h1>
-						Wanneer een virus heel alle Nederlanders dwingt om thuis
-						te blijven, waarom blijft er een grote wolk van
-						luchtvervuiling boven Nederland hangen?{' '}
-					</h1>
-				</GridCol>
+				<h1>Hoe zit het met luchtvervuiling in Nederland?</h1>
 			</GridRow>
 			<GridRow>
-				<GridCol size='1'>NO2</GridCol>
 				<GridCol size='1'>
-					<h2>Wat is NO2? </h2>
+					<GridContainer>
+						<GridRow>
+							<Map mapURL='/mapid-2019' />
+						</GridRow>
+						<GridRow>
+							<div>
+								<p>
+									De lucht vervuiling is verminderd in 2020,
+									door de corona crisis. Deze maatregelen
+									hebben hier invloed op gehad.
+								</p>
+							</div>
+						</GridRow>
+					</GridContainer>
+				</GridCol>
+				<GridCol size='1'>
+					<h2>Advies Dingen</h2>
 					<p>
 						NO2 of stikstofdioxide is een stof die vrijkomt bij
 						verbrandingsprocessen. Wanneer mensen stikstofdioxide
@@ -38,4 +48,4 @@ const ExplainNo = () => {
 	);
 };
 
-export default ExplainNo;
+export default LuchtVervuiling;

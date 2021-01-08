@@ -2,22 +2,26 @@ import React from 'react';
 
 import styled from 'styled-components';
 import { px2vw, colors } from '../GlobalStyles';
-export const Container = styled.div`
+export const AppContainer = styled.div`
 	display: flex;
 	flex-flow: column;
 	align-items: center;
 `;
 
-export const Section = styled.div`
+export const Section = styled.section`
 	padding: 5em;
-	min-height: 100vh;
+	display: flex;
+	min-height: 100%;
 	min-width: 100vw;
+	align-items: center;
+	text-align: left;
 
+	flex: 1;
 	&.section-1 {
 		background: ${colors.primary};
-		display: flex;
+
 		align-items: center;
-		text-align: left;
+
 		color: white;
 	}
 `;
@@ -25,30 +29,29 @@ export const Section = styled.div`
 export const GridContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: stretch;
-	align-content: stretch;
-	margin: ${px2vw(32)};
-	height: 100%;
 	max-width: 100%;
+	max-height: 100%;
+	flex: 1;
+	justify-content: space-around;
+	align-content: stretch;
+	/* margin: ${px2vw(32)}; */
+	/* height: 100%; */
+	/* max-width: 100%; */
 `;
 
-export const GridItem = styled.div`
+export const GridRow = styled.div`
 	display: flex;
+	flex: 1;
+	min-height: 100%;
+	justify-content: space-between;
+	align-items: stretch;
+`;
 
-	padding: ${px2vw(20)};
-	margin: ${px2vw(20)};
-	/* background-color: ${(props) => props.bgColor}; */
-	height: 100%;
-
-	@media (min-width: 768px) {
-		min-width: ${px2vw(320, 768)};
-
-		height: 100%;
-	}
-
-	@media (min-width: 1024px) {
-		min-width: ${px2vw(500)};
-
-		height: 100%;
-	}
+export const GridCol = styled.div`
+	display: flex;
+	padding: 1em;
+	flex: ${(props) => (props ? props.size : 1)};
+	border: 1px solid red;
+	display: block;
+	align-items: stretch;
 `;

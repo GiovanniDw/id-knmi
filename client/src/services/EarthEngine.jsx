@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
-export const getMapId = () => {
+export const getMapId = (url) => {
 	const [data, setData] = useState();
 	const callBackendAPI = async () => {
-		const response = await fetch('/mapid');
+		const response = await fetch(url);
 		const body = await response.text();
 
 		if (response.status !== 200) {
@@ -25,7 +25,7 @@ export const getMapId = () => {
 export const getMapCollection = () => {
 	const [data, setData] = useState();
 	const callBackendAPI = async () => {
-		const response = await fetch('/map-settings');
+		const response = await fetch('/mapid-2020');
 
 		const body = await response.text();
 

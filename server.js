@@ -23,13 +23,26 @@ const port = process.env.PORT || 5000;
 const firstYear = { start: '2019-04-01', end: '2019-05-30' };
 const secondYear = { start: '2020-04-01', end: '2020-05-30' };
 
-app.get('/mapid', (_, res) => {
-	const first = ee
+app.get('/mapid-2019', (_, res) => {
+	const collection = ee
 		.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2')
 		.select('NO2_column_number_density')
-		.filterDate('2019-04-01', '2019-05-30');
+		.filterDate(firstYear.start, firstYear.end);
 
-	const second = ee
+	const band_viz = {
+		min: 0,
+		max: 0.0002,
+		opacity: 0.7,
+		palette: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
+	};
+
+	const layer = collection.median();
+
+	layer.getMap(band_viz, ({ mapid }) => res.send(mapid));
+});
+
+app.get('/mapid-2020', (_, res) => {
+	const collection = ee
 		.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2')
 		.select('NO2_column_number_density')
 		.filterDate(secondYear.start, secondYear.end);
@@ -41,36 +54,9 @@ app.get('/mapid', (_, res) => {
 		palette: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
 	};
 
-	const layer = second.median();
+	const layer = collection.median();
 
 	layer.getMap(band_viz, ({ mapid }) => res.send(mapid));
-});
-
-app.get('/map-settings', (_, res) => {
-	const first = ee
-		.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2')
-		.filterDate(firstYear.start, firstYear.end);
-
-	const second = ee
-		.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2')
-		.select('NO2_column_number_density')
-		.filterDate(secondYear.start, secondYear.end);
-
-	const band_viz = {
-		min: 0,
-		max: 0.0002,
-		bands: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
-	};
-
-	const layer = second.mean();
-
-	const srtm = ee.Image('CGIAR/SRTM90_V4');
-	const slope = ee.Terrain.slope(median);
-
-	// const layers = slope.getMap(band_viz, ({ mapid }) => res.send(mapid));
-	layer.getMap(band_viz, ({ mapid }) => res.send(mapid));
-
-	// res.send({ google: image });
 });
 
 const runAnalysis = () => {

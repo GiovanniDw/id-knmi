@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
+
+import useEarthEngine from './hooks/useEarthEngine';
 import Map from './Components/Map';
 import Sections from './Components/Sections';
 import ExplainNo from './Pages/ExplainNo';
+import LuchtVervuiling from './Pages/LuchtVervuiling';
 import { GlobalStyle, colors } from './GlobalStyles';
-import { Container, Section } from './Components/StyledComponents';
+import { AppContainer, Section } from './Components/StyledComponents';
 const App = () => {
 	// const data = ServerService();
 
 	return (
-		<Container className='App'>
+		<AppContainer className='App'>
 			<Sections className='section-1'>
 				<h1>
 					Wanneer een virus heel alle Nederlanders dwingt om thuis te
@@ -20,13 +23,13 @@ const App = () => {
 				<ExplainNo />
 			</Sections>
 			<Sections className='section-3'>
-				<Map />
+				<LuchtVervuiling />
 			</Sections>
 			<Sections className='section-4'>
-				<Map />
+				<Map mapURL={'/mapid-2020'} />
 			</Sections>
 			<GlobalStyle />
-		</Container>
+		</AppContainer>
 	);
 };
 
