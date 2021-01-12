@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export const getMapId = (url) => {
 	const [data, setData] = useState();
@@ -21,3 +21,5 @@ export const getMapId = (url) => {
 
 	return data;
 };
+
+export default getMapId;
