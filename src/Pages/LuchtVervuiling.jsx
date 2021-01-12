@@ -14,10 +14,10 @@ const LuchtVervuiling = () => {
 				<h2>Hoe zit het met luchtvervuiling in Nederland?</h2>
 			</GridRow>
 			<GridRow>
-				<GridCol size='1'>
+				<GridCol size="1">
 					<GridContainer>
 						<GridRow>
-							<Map mapURL='/mapid-2019' />
+							<Map mapURL="/mapid-2019" />
 						</GridRow>
 						<GridRow>
 							<div>
@@ -30,7 +30,7 @@ const LuchtVervuiling = () => {
 						</GridRow>
 					</GridContainer>
 				</GridCol>
-				<GridCol size='1'>
+				<GridCol size="1">
 					<h3>Advies Dingen</h3>
 					<p>
 						NO2 of stikstofdioxide is een stof die vrijkomt bij

@@ -47,8 +47,8 @@ const Map = (props) => {
 	if (!mapRef && !mapid) return <Loading />;
 
 	return (
-		<MapContainer className='map-container'>
-			<div className='google-map' ref={mapRef}></div>
+		<MapContainer className="map-container">
+			<div className="google-map" ref={mapRef}></div>
 		</MapContainer>
 	);
 };

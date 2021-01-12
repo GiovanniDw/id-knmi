@@ -1,11 +1,12 @@
-require("dotenv").config();
+/* eslint-disable no-undef */
+require('dotenv').config();
 
-const ee = require("@google/earthengine");
-const express = require("express");
+const ee = require('@google/earthengine');
+const express = require('express');
 const app = express();
 
-const privateKey = require("../.private-key.json");
-const service_account = "giovanni@knmi-300816.iam.gserviceaccount.com";
+const privateKey = require('../.private-key.json');
+const service_account = 'giovanni@knmi-300816.iam.gserviceaccount.com';
 
 const port = process.env.PORT || 5000;
 
@@ -20,20 +21,20 @@ const port = process.env.PORT || 5000;
 // });
 // app.listen(port, () => console.log(`Listening on port ${port}`));
 
-const firstYear = { start: "2019-04-01", end: "2019-05-30" };
-const secondYear = { start: "2020-04-01", end: "2020-05-30" };
+const firstYear = { start: '2019-04-01', end: '2019-05-30' };
+const secondYear = { start: '2020-04-01', end: '2020-05-30' };
 
 const band_viz = {
 	min: 0,
 	max: 0.0002,
 	opacity: 0.7,
-	palette: ["black", "blue", "purple", "cyan", "green", "yellow", "red"],
+	palette: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
 };
 
-app.get("/mapid-2019", (_, res) => {
+app.get('/mapid-2019', (_, res) => {
 	const collection = ee
-		.ImageCollection("COPERNICUS/S5P/NRTI/L3_NO2")
-		.select("NO2_column_number_density")
+		.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2')
+		.select('NO2_column_number_density')
 		.filterDate(firstYear.start, firstYear.end);
 
 	const layer = collection.median();
@@ -41,10 +42,10 @@ app.get("/mapid-2019", (_, res) => {
 	layer.getMap(band_viz, ({ mapid }) => res.send(mapid));
 });
 
-app.get("/mapid-2020", (_, res) => {
+app.get('/mapid-2020', (_, res) => {
 	const collection = ee
-		.ImageCollection("COPERNICUS/S5P/NRTI/L3_NO2")
-		.select("NO2_column_number_density")
+		.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2')
+		.select('NO2_column_number_density')
 		.filterDate(secondYear.start, secondYear.end);
 
 	const layer = collection.median();
@@ -57,12 +58,12 @@ const runAnalysis = () => {
 		null,
 		null,
 		function () {
-			console.log("Earth Engine client library initialized.");
+			console.log('Earth Engine client library initialized.');
 			app.listen(port);
 			console.log(`Listening on port ${port}`);
 		},
 		function (e) {
-			console.log("Initialization error: " + e);
+			console.log('Initialization error: ' + e);
 			console.log(
 				`Please make sure you have created a service account and have been approved.
 Visit https://developers.google.com/earth-engine/service_account#how-do-i-create-a-service-account to learn more.`
@@ -72,5 +73,5 @@ Visit https://developers.google.com/earth-engine/service_account#how-do-i-create
 };
 
 ee.data.authenticateViaPrivateKey(privateKey, runAnalysis, function (e) {
-	console.error("Authentication error: " + e);
+	console.error('Authentication error: ' + e);
 });

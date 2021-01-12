@@ -16,12 +16,15 @@
     },
     "plugins": [
         "react",
-        "react-hooks"
+        "react-hooks",
+        "prettier"
     ],
     "rules": {
-        "react-hooks/rules-of-hooks": "warn",
-        "react/prop-types": [0],
-        "no-unused-vars":"off",
+        "react-hooks/rules-of-hooks": "off",
+        "react/prop-types": [
+            0
+        ],
+        "no-unused-vars": "off",
         "indent": [
             "error",
             "tab"
@@ -40,4 +43,3 @@
         ]
     }
 }
-
