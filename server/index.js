@@ -41,6 +41,7 @@ app.get("/mapid-2019", (_, res) => {
 	layer.getMap(band_viz, ({ mapid }) => res.send(mapid));
 });
 
+
 app.get("/mapid-2020", (_, res) => {
 	const collection = ee
 		.ImageCollection("COPERNICUS/S5P/NRTI/L3_NO2")
