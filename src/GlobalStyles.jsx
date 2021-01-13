@@ -11,7 +11,14 @@ export const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
 export const GlobalStyle = createGlobalStyle`
 ${normalize}
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Source+Serif+Pro:wght@700&display=swap');
+
+*, *::before, *:after {
+    box-sizing:border-box;
+	text-overflow: ellipsis; 
+	padding:0;
+	margin:0;
+}
+
 
 
 h1,h2 {
@@ -30,18 +37,10 @@ body {
 }
 
 
-
-*, *::before, *:after {
-    box-sizing:border-box;
-	text-overflow: ellipsis; 
-	padding:0;
-	margin:0;
-}
 .App {
     padding:1em;
-	text-align: center;
-	min-height: 100%;
-	height: 100vh;
+	min-height: 100vh;
+	${'' /* height: 100vh; */}
 	width: 100vw;
 }
 

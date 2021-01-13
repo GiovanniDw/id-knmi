@@ -49,7 +49,6 @@ export const GridRow = styled.div`
 `;
 
 export const GridCol = styled.div`
-	display: flex;
 	padding: 1em;
 	flex: ${(props) => (props ? props.size : 1)};
 	border: 1px solid red;

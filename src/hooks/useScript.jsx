@@ -20,9 +20,10 @@ export const useScript = (src) => {
 		if (!script) {
 			// Create script
 			script = document.createElement('script');
-			script.src = src;
 			script.async = true;
+			script.defer = true;
 			script.setAttribute('data-status', 'loading');
+			script.src = src;
 			// Add script to document body
 			document.body.insertAdjacentElement('afterbegin', script);
 

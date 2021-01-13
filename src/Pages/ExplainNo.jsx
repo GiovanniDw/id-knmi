@@ -19,8 +19,8 @@ const ExplainNo = () => {
 				</GridCol>
 			</GridRow>
 			<GridRow>
-				<GridCol size='1'>NO2</GridCol>
-				<GridCol size='1'>
+				<GridCol size="1">NO2</GridCol>
+				<GridCol size="1">
 					<h3>Wat is NO2? </h3>
 					<p>
 						NO2 of stikstofdioxide is een stof die vrijkomt bij
