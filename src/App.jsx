@@ -6,19 +6,21 @@ import Map from './Components/Map';
 import ExplainNo from './Pages/ExplainNo';
 import LuchtVervuiling from './Pages/LuchtVervuiling';
 import { GlobalStyle, colors } from './GlobalStyles';
-import { AppContainer, Section } from './Components/StyledComponents';
+import { AppContainer, Intro, IntroHeading, Section } from './Components/StyledComponents';
+import { motion } from 'framer-motion';
+
 const App = () => {
 	// const data = ServerService();
 
 	return (
 		<AppContainer className="App">
-			<Section className="section-1">
-				<h1>
-					Wanneer een virus heel alle Nederlanders dwingt om thuis te
+			<Intro className="section-1">
+				<motion.h1 className="framerSolution" initial={{ opacity: 0, x: '-100vw' }} animate={{ opacity: 1, x: '-25vw' }} transition={{ delay: 0.5, duration: 0.7, type: 'spring', stiffness: 90 }}>
+					Wanneer een virus alle Nederlanders dwingt om thuis te
 					blijven, waarom blijft er een grote wolk van luchtvervuiling
 					boven Nederland hangen?{' '}
-				</h1>
-			</Section>
+				</motion.h1>
+			</Intro>
 			<Section className="section-2">
 				<ExplainNo />
 			</Section>
