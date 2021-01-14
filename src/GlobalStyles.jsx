@@ -1,36 +1,34 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-
+import reset from 'styled-reset';
 export const colors = {
 	primary: '#12184D',
 	secondary: 'red',
 	red: '#F80D0D',
-	darkBlue:'#12184D'
+	darkBlue: '#12184D',
 };
 
 export const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
 
 export const GlobalStyle = createGlobalStyle`
 ${normalize}
-
+${reset}
 
 *, *::before, *:after {
     box-sizing: border-box;
-	text-overflow: ellipsis; 
 	padding: 0;
 	margin: 0;
-	overflow-x: hidden;
 }
 
 :root {
-      font-size: ${px2vw(24)};
+      font-size: 14px;
 
       @media (min-width: 768px) {
-        font-size: ${px2vw(18)};
+        font-size: 18px;
       }
 
       @media (min-width: 1024px) {
-        font-size: ${px2vw(16)};
+        font-size: 24px;
       }
     }
 
@@ -38,18 +36,14 @@ ${normalize}
 h1,h2 {
 	font-family: 'Source Serif Pro', serif;
 	font-weight:bold;
+	text-align:center;
 }
 
 .InitialHeading {
-	${'' /* max-width: 60vw; */}
 	text-align: center;
 	line-height: 150%;
 	font-size: 2em;
 	overflow-y: hidden;
-	${'' /* position: absolute; */}
-	${'' /* top: 25vh; */}
-	${'' /* left: 50vw; */}
-	${'' /* transform: translate(-50%, -50%); */}
 }
 
 h3 {

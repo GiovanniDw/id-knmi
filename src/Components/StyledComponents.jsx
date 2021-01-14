@@ -6,7 +6,8 @@ import { px2vw, colors } from '../GlobalStyles';
 export const AppContainer = styled.div`
 	display: flex;
 	flex-flow: column;
-	align-items: center;
+	align-items: stretch;
+	max-width: 100vw;
 `;
 
 export const Intro = styled.section`
@@ -17,17 +18,20 @@ export const Intro = styled.section`
 	min-height: 100vh;
 	min-width: 100vw;
 	background-color: ${colors.primary};
-	color: white;
+	color: red;
 `;
 
 export const Section = styled.section`
-	padding: 1em;
 	display: flex;
-	min-height: 100%;
+	min-height: 100vh;
 	min-width: 100vw;
+	height: 100vh;
 	align-items: center;
 	text-align: left;
 	flex: 1;
+	background-color: ${colors.primary};
+	color: white;
+	padding: 7%;
 `;
 
 export const GridContainer = styled.div`

@@ -10,13 +10,7 @@ const ExplainNo = () => {
 	return (
 		<GridContainer>
 			<GridRow>
-				<GridCol>
-					<h2>
-						Wanneer een virus heel alle Nederlanders dwingt om thuis
-						te blijven, waarom blijft er een grote wolk van
-						luchtvervuiling boven Nederland hangen?{' '}
-					</h2>
-				</GridCol>
+				<h2>Over welke luchtvervuiling hebben we het?</h2>
 			</GridRow>
 			<GridRow>
 				<GridCol size="1">NO2</GridCol>

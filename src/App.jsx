@@ -13,7 +13,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
-
 	return (
 		<AppContainer className="App">
 			<Intro />
