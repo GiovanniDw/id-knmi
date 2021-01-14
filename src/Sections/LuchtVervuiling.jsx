@@ -1,50 +1,48 @@
 import React from 'react';
-
 import {
 	GridContainer,
 	GridRow,
 	GridCol,
+	Section,
+	FlexContainer,
+	FlexItem,
 } from '../Components/StyledComponents';
 
 import Map from '../Components/Map';
-const LuchtVervuiling = () => {
+const LuchtVervuiling = (props) => {
+	const { activeCountry } = props;
+
 	return (
-		<GridContainer>
-			<GridRow>
-				<h2>Hoe zit het met luchtvervuiling in Nederland?</h2>
-			</GridRow>
-			<GridRow>
-				<GridCol size="1">
-					<GridContainer>
-						<GridRow>
+		<Section>
+			<FlexContainer>
+				<FlexItem>
+					<h2>
+						Hoe zit het met luchtvervuiling in{' '}
+						{activeCountry ? activeCountry.name : 'Nederland'}
+					</h2>
+				</FlexItem>
+				<FlexItem>
+					<FlexContainer flexDirection="row">
+						<FlexItem>
 							<Map mapURL="/mapid-2019" />
-						</GridRow>
-						<GridRow>
-							<div>
-								<p>
-									De lucht vervuiling is verminderd in 2020,
-									door de corona crisis. Deze maatregelen
-									hebben hier invloed op gehad.
-								</p>
-							</div>
-						</GridRow>
-					</GridContainer>
-				</GridCol>
-				<GridCol size="1">
-					<h3>Advies Dingen</h3>
-					<p>
-						NO2 of stikstofdioxide is een stof die vrijkomt bij
-						verbrandingsprocessen. Wanneer mensen stikstofdioxide
-						inademen, kan dit leiden tot longirritatie, verminderde
-						weerstand, en infecties van de luchtwegen. Chronische
-						blootstelling aan huidige niveaus van stikstofdioxide
-						leidt tot een gemiddelde levensduur verkorting van 4
-						maanden. Er was al langere tijd bekend dat fijn stof
-						leidt tot vroegere sterfte.
-					</p>
-				</GridCol>
-			</GridRow>
-		</GridContainer>
+
+							<p>
+								De lucht vervuiling is verminderd in 2020, door
+								de corona crisis. Deze maatregelen hebben hier
+								invloed op gehad.
+							</p>
+						</FlexItem>
+
+						<FlexItem>
+							<h3>Thuiswerkadvies</h3>
+							<p>Vliegverbod voor bepaalde landen</p>
+							<p>Maatregelen worden verlengd </p>
+							<p>Vanaf 1 juni weer versoepelingen</p>
+						</FlexItem>
+					</FlexContainer>
+				</FlexItem>
+			</FlexContainer>
+		</Section>
 	);
 };
 

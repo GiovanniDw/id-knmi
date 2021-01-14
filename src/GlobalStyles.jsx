@@ -22,13 +22,13 @@ ${reset}
 
 :root {
       font-size: 14px;
-
+	  font-family: 'Montserrat', sans-serif;
       @media (min-width: 768px) {
         font-size: 18px;
       }
 
       @media (min-width: 1024px) {
-        font-size: 24px;
+        font-size: 20px;
       }
     }
 
@@ -37,6 +37,23 @@ h1,h2 {
 	font-family: 'Source Serif Pro', serif;
 	font-weight:bold;
 	text-align:center;
+	font-size:1.8em;
+}
+
+h2 {
+	margin:1em;
+}
+h3 {
+
+font-family: 'Montserrat', sans-serif;
+font-weight:600;
+}
+
+p {
+	line-height:1.4em;
+}
+img {
+	width:100%;
 }
 
 .InitialHeading {
@@ -46,11 +63,7 @@ h1,h2 {
 	overflow-y: hidden;
 }
 
-h3 {
 
-	font-family: 'Montserrat', sans-serif;
-	font-weight:600;
-}
 
 body {
 	font-family: 'Montserrat', sans-serif;
@@ -61,5 +74,6 @@ body {
 	${'' /* height: 100vh; */}
 	width: 100vw;
 }
+p {padding-top:1em;}
 
 `;

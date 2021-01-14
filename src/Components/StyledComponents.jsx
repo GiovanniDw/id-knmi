@@ -24,7 +24,7 @@ export const Intro = styled.section`
 export const Section = styled.section`
 	display: flex;
 	min-height: 100vh;
-	min-width: 100vw;
+	min-width: 100%;
 	height: 100vh;
 	align-items: center;
 	text-align: left;
@@ -32,13 +32,14 @@ export const Section = styled.section`
 	background-color: ${colors.primary};
 	color: white;
 	padding: 7%;
+	border: 1px solid green;
 `;
 
 export const GridContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	max-width: 100%;
-	max-height: 100%;
+
 	flex: 1;
 	justify-content: space-around;
 	align-content: stretch;
@@ -62,4 +63,19 @@ export const GridCol = styled.div`
 	border: 1px solid red;
 	display: block;
 	align-items: stretch;
+`;
+
+export const FlexContainer = styled.div`
+	display: flex;
+	flex-direction: ${(props) => props.flexDirection || 'column'};
+	align-items: stretch;
+	justify-content: space-around;
+	flex: 1;
+`;
+
+export const FlexItem = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	flex: 1;
 `;
