@@ -15,10 +15,8 @@ const App = () => {
 	return (
 		<AppContainer className="App">
 			<Intro className="section-1">
-				<motion.h1 className="framerSolution" initial={{ opacity: 0, x: '-100vw' }} animate={{ opacity: 1, x: '-25vw' }} transition={{ delay: 0.5, duration: 0.7, type: 'spring', stiffness: 90 }}>
-					Wanneer een virus alle Nederlanders dwingt om thuis te
-					blijven, waarom blijft er een grote wolk van luchtvervuiling
-					boven Nederland hangen?{' '}
+				<motion.h1 className="framerSolution" initial={{ opacity: 0, x: '-100vw' }} animate={{ opacity: 1, x: '-25vw' }} transition={{ delay: 0.5, duration: 1, type: 'spring', stiffness: 50 }}>
+				Wat gebeurt er met luchtvervuiling wanneer een virus Europeanen dwingt om thuis te blijven?{' '}
 				</motion.h1>
 			</Intro>
 			<Section className="section-2">
