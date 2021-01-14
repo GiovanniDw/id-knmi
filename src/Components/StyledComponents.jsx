@@ -10,19 +10,18 @@ export const AppContainer = styled.div`
 `;
 
 export const Intro = styled.section`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin: 0 auto;
 	min-height: 100vh;
 	min-width: 100vw;
 	background-color: ${colors.primary};
 	color: white;
-	position: relative;
-`;
-
-export const IntroHeading = styled.h1`
 `;
 
 export const Section = styled.section`
-	padding: 5em;
+	padding: 1em;
 	display: flex;
 	min-height: 100%;
 	min-width: 100vw;
