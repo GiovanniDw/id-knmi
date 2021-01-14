@@ -3,7 +3,7 @@ import { normalize } from 'styled-normalize';
 import reset from 'styled-reset';
 export const colors = {
 	primary: '#12184D',
-	secondary: 'red',
+	primaryText: 'white',
 	red: '#F80D0D',
 	darkBlue: '#12184D',
 };
@@ -21,7 +21,13 @@ ${reset}
 }
 
 :root {
+
+	html, body {
+		background-color:${colors.darkBlue};
+	}
+
       font-size: 14px;
+	  
 	  font-family: 'Montserrat', sans-serif;
       @media (min-width: 768px) {
         font-size: 18px;
@@ -35,9 +41,10 @@ ${reset}
 
 h1,h2 {
 	font-family: 'Source Serif Pro', serif;
-	font-weight:bold;
+	font-weight:700;
 	text-align:center;
 	font-size:1.8em;
+	line-height:1.6;
 }
 
 h2 {
@@ -47,10 +54,15 @@ h3 {
 
 font-family: 'Montserrat', sans-serif;
 font-weight:600;
+padding-top:.5em;
+padding-bottom:.5em;
 }
 
 p {
+	padding-top:.5em;
+	padding-bottom:.5em;
 	line-height:1.4em;
+	font-weight:400;
 }
 img {
 	width:100%;
@@ -74,6 +86,6 @@ body {
 	${'' /* height: 100vh; */}
 	width: 100vw;
 }
-p {padding-top:1em;}
+
 
 `;

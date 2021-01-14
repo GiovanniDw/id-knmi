@@ -32,11 +32,19 @@ const App = () => {
 				setActiveCountry={setActiveCountry}
 				countries={Countries}
 			/>
-			<LuchtVervuiling activeCountry={activeCountry} />
 
-			<Section className="section-4">
-				<Map mapURL={'/mapid-2020'} />
-			</Section>
+			{!activeCountry ? (
+				' '
+			) : (
+				<>
+					<LuchtVervuiling activeCountry={activeCountry} />
+					<Section className="section-4">
+						<Map mapURL={'/mapid-2020'} />
+					</Section>
+					)
+				</>
+			)}
+
 			<GlobalStyle />
 		</AppContainer>
 	);

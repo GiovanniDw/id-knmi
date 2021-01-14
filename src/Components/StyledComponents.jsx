@@ -8,6 +8,7 @@ export const AppContainer = styled.div`
 	flex-flow: column;
 	align-items: stretch;
 	max-width: 100vw;
+	scroll-snap-type: y mandatory;
 `;
 
 export const Intro = styled.section`
@@ -25,14 +26,13 @@ export const Section = styled.section`
 	display: flex;
 	min-height: 100vh;
 	min-width: 100%;
-	height: 100vh;
+
 	align-items: center;
-	text-align: left;
-	flex: 1;
 	background-color: ${colors.primary};
 	color: white;
 	padding: 7%;
 	border: 1px solid green;
+	scroll-snap-align: start;
 `;
 
 export const GridContainer = styled.div`
