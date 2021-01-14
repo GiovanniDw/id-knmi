@@ -2,10 +2,23 @@ import React from 'react';
 
 import styled from 'styled-components';
 import { px2vw, colors } from '../GlobalStyles';
+
 export const AppContainer = styled.div`
 	display: flex;
 	flex-flow: column;
 	align-items: center;
+`;
+
+export const Intro = styled.section`
+	margin: 0 auto;
+	min-height: 100vh;
+	min-width: 100vw;
+	background-color: ${colors.primary};
+	color: white;
+	position: relative;
+`;
+
+export const IntroHeading = styled.h1`
 `;
 
 export const Section = styled.section`
@@ -15,15 +28,7 @@ export const Section = styled.section`
 	min-width: 100vw;
 	align-items: center;
 	text-align: left;
-
 	flex: 1;
-	&.section-1 {
-		background: ${colors.primary};
-
-		align-items: center;
-
-		color: white;
-	}
 `;
 
 export const GridContainer = styled.div`

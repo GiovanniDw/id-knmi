@@ -13,32 +13,41 @@ ${normalize}
 
 
 *, *::before, *:after {
-    box-sizing:border-box;
+    box-sizing: border-box;
 	text-overflow: ellipsis; 
-	padding:0;
-	margin:0;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
 }
-
-
 
 h1,h2 {
 	font-family: 'Source Serif Pro', serif;
 	font-weight:bold;
 }
+
+.framerSolution {
+	max-width: 60vw;
+	text-align: center;
+	line-height: 150%;
+	font-size: 3.3em;
+	overflow-y: hidden;
+	position: absolute;
+	top: 25vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+}
+
 h3 {
 
 	font-family: 'Montserrat', sans-serif;
 	font-weight:600;
 }
 
-
 body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-
 .App {
-    padding:1em;
 	min-height: 100vh;
 	${'' /* height: 100vh; */}
 	width: 100vw;
