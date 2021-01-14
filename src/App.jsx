@@ -8,10 +8,12 @@ import LuchtVervuiling from './Pages/LuchtVervuiling';
 import { GlobalStyle, colors } from './GlobalStyles';
 import { AppContainer, Intro, IntroHeading, Section } from './Components/StyledComponents';
 import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
-	// const data = ServerService();
-
+	
 	return (
 		<AppContainer className="App">
 			<Intro className="section-1">
