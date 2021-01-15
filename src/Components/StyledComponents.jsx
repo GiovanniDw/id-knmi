@@ -5,7 +5,9 @@ import { px2vw, colors } from '../GlobalStyles';
 
 export const AppContainer = styled.div`
 	flex-flow: column;
-	align-items: center;
+	align-items: stretch;
+	max-width: 100vw;
+	scroll-snap-type: y mandatory;
 `;
 
 export const Intro = styled.section`
@@ -16,24 +18,27 @@ export const Intro = styled.section`
 	min-height: 100vh;
 	min-width: 100vw;
 	background-color: ${colors.primary};
-	color: white;
+	color: red;
 `;
 
 export const Section = styled.section`
-	padding: 1em;
 	display: flex;
-	min-height: 100%;
-	min-width: 100vw;
+	min-height: 100vh;
+	min-width: 100%;
+
 	align-items: center;
-	text-align: left;
-	flex: 1;
+	background-color: ${colors.primary};
+	color: white;
+	padding: 7%;
+	border: 1px solid green;
+	scroll-snap-align: start;
 `;
 
 export const GridContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	max-width: 100%;
-	max-height: 100%;
+
 	flex: 1;
 	justify-content: space-around;
 	align-content: stretch;
@@ -57,4 +62,19 @@ export const GridCol = styled.div`
 	border: 1px solid red;
 	display: block;
 	align-items: stretch;
+`;
+
+export const FlexContainer = styled.div`
+	display: flex;
+	flex-direction: ${(props) => props.flexDirection || 'column'};
+	align-items: stretch;
+	justify-content: space-around;
+	flex: 1;
+`;
+
+export const FlexItem = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	flex: 1;
 `;

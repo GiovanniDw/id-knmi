@@ -1,62 +1,81 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-
+import reset from 'styled-reset';
 export const colors = {
 	primary: '#12184D',
-	secondary: 'red',
+	primaryText: 'white',
 	red: '#F80D0D',
-	darkBlue:'#12184D'
+	darkBlue: '#12184D',
 };
 
 export const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
 
 export const GlobalStyle = createGlobalStyle`
 ${normalize}
-
+${reset}
 
 *, *::before, *:after {
     box-sizing: border-box;
-	text-overflow: ellipsis; 
 	padding: 0;
 	margin: 0;
-	overflow-x: hidden;
 }
 
 :root {
-      font-size: ${px2vw(24)};
 
+	html, body {
+		background-color:${colors.darkBlue};
+	}
+
+      font-size: 14px;
+	  
+	  font-family: 'Montserrat', sans-serif;
       @media (min-width: 768px) {
-        font-size: ${px2vw(18)};
+        font-size: 18px;
       }
 
       @media (min-width: 1024px) {
-        font-size: ${px2vw(16)};
+        font-size: 20px;
       }
     }
 
 
 h1,h2 {
 	font-family: 'Source Serif Pro', serif;
-	font-weight:bold;
-} 
+	font-weight:700;
+	text-align:center;
+	font-size:1.8em;
+	line-height:1.6;
+}
+
+h2 {
+	margin:1em;
+}
+h3 {
+
+font-family: 'Montserrat', sans-serif;
+font-weight:600;
+padding-top:.5em;
+padding-bottom:.5em;
+}
+
+p {
+	padding-top:.5em;
+	padding-bottom:.5em;
+	line-height:1.4em;
+	font-weight:400;
+}
+img {
+	width:100%;
+}
 
 .InitialHeading {
-	${'' /* max-width: 60vw; */}
 	text-align: center;
 	line-height: 150%;
 	font-size: 2em;
 	overflow-y: hidden;
-	${'' /* position: absolute; */}
-	${'' /* top: 25vh; */}
-	${'' /* left: 50vw; */}
-	${'' /* transform: translate(-50%, -50%); */}
 }
 
-h3 {
 
-	font-family: 'Montserrat', sans-serif;
-	font-weight:600;
-}
 
 body {
 	font-family: 'Montserrat', sans-serif;
@@ -67,5 +86,6 @@ body {
 	${'' /* height: 100vh; */}
 	width: 100vw;
 }
+
 
 `;

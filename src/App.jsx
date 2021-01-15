@@ -8,24 +8,43 @@ import LuchtVervuiling from './Sections/LuchtVervuiling';
 import Intro from './Sections/Intro';
 import { GlobalStyle, colors } from './GlobalStyles';
 import { AppContainer, Section } from './Components/StyledComponents';
-import { gsap } from 'gsap';
+
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+import SelectCountry from './Sections/SelectCountry';
+
+import Belgie from './assets/Belgie.svg';
+import Nederland from './assets/Nederland.svg';
+import Duitsland from './assets/Duitsland.svg';
 
 const App = () => {
-
+	const [activeCountry, setActiveCountry] = useState(null);
+	const Countries = [
+		{ name: 'Nederland', icon: Nederland },
+		{ name: 'Belgie', icon: Belgie },
+		{ name: 'Duitsland', icon: Duitsland },
+	];
 	return (
 		<AppContainer className="App">
 			<Intro />
-			<Section className="section-2">
-				<ExplainNo />
-			</Section>
-			<Section className="section-3">
-				<LuchtVervuiling />
-			</Section>
-			<Section className="section-4">
-				<Map mapURL={'/mapid-2020'} />
-			</Section>
+
+			<ExplainNo />
+			<SelectCountry
+				setActiveCountry={setActiveCountry}
+				countries={Countries}
+			/>
+
+			{!activeCountry ? (
+				' '
+			) : (
+				<>
+					<LuchtVervuiling activeCountry={activeCountry} />
+					<Section className="section-4">
+						<Map mapURL={'/mapid-2020'} />
+					</Section>
+					)
+				</>
+			)}
+
 			<GlobalStyle />
 		</AppContainer>
 	);
