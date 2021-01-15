@@ -38,7 +38,7 @@ ${normalize}
 h1,h2 {
 	font-family: 'Source Serif Pro', serif;
 	font-weight:bold;
-}
+} 
 
 .InitialHeading {
 	${'' /* max-width: 60vw; */}

@@ -7,14 +7,15 @@ import { Section } from '../Components/StyledComponents';
 gsap.registerPlugin(ScrollTrigger);
 
 export const Intro = () => {
-    return (
-        <Section>  
-            <h1 className="InitialHeading">
+
+	return (
+		<Section>  
+			<h1 className="InitialHeading">
                 Wat gebeurt er met luchtvervuiling wanneer een virus Europeanen dwingt om thuis te blijven?{' '}
-            </h1>
-        </Section>
-      
-    )
-}
+			</h1>
+		</Section>
+                
+	);
+};
 
 export default Intro;

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { px2vw, colors } from '../GlobalStyles';
 
 export const AppContainer = styled.div`
-	display: flex;
 	flex-flow: column;
 	align-items: center;
 `;
