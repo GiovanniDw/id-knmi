@@ -7,23 +7,24 @@ import {
 	Section,
 	FlexContainer,
 	FlexItem,
+	SectionTitle,
 } from '../Components/StyledComponents';
 
 import no2desc from '../assets/no2desc.svg';
 
-const ExplainNo = () => {
+const ExplainNo = (props, ref) => {
 	return (
-		<Section>
+		<Section ref={ref}>
 			<FlexContainer>
-				<FlexItem className="class" darkTheme>
+				<SectionTitle>
 					<h2>Over welke luchtvervuiling hebben we het?</h2>
-				</FlexItem>
+				</SectionTitle>
 				<FlexItem>
 					<FlexContainer flexDirection="row">
 						<FlexItem>
 							<img src={no2desc} alt="" />
 						</FlexItem>
-						<FlexItem size="1">
+						<FlexItem darkTheme size="1">
 							<h3>Wat is NO2? </h3>
 							<p>
 								NO2 of stikstofdioxide is een stof die vrijkomt

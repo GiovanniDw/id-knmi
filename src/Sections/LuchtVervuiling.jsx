@@ -6,6 +6,7 @@ import {
 	Section,
 	FlexContainer,
 	FlexItem,
+	SectionTitle,
 } from '../Components/StyledComponents';
 
 import Map from '../Components/Map';
@@ -15,12 +16,12 @@ const LuchtVervuiling = (props) => {
 	return (
 		<Section>
 			<FlexContainer>
-				<FlexItem>
+				<SectionTitle>
 					<h2>
 						Hoe zit het met luchtvervuiling in{' '}
 						{activeCountry ? activeCountry.name : 'Nederland'}
 					</h2>
-				</FlexItem>
+				</SectionTitle>
 				<FlexItem>
 					<FlexContainer flexDirection="row">
 						<FlexItem>

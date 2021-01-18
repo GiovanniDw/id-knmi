@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import useIsInViewport from 'use-is-in-viewport';
 import useEarthEngine from './hooks/useEarthEngine';
 import Map from './Components/Map';
-// import Sections from './Components/Sections';
-import ExplainNo from './Sections/ExplainNo';
+// import ExplainNo from './Sections/ExplainNo';
+import NoTwoExplination from './Sections/NoTwoExplination';
 import LuchtVervuiling from './Sections/LuchtVervuiling';
 import Intro from './Sections/Intro';
 import { GlobalStyle, colors } from './GlobalStyles';
@@ -40,8 +40,8 @@ export const App = () => {
 	return (
 		<AppContainer ref={appContainerRef} className="App">
 			<Intro />
-
-			<ExplainNo ref={ExplainNoRef} />
+			<NoTwoExplination />
+			{/* <ExplainNo ref={ExplainNoRef} /> */}
 			<SelectCountry
 				setActiveCountry={setActiveCountry}
 				countries={Countries}

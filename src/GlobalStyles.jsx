@@ -36,7 +36,7 @@ ${reset}
 	  
 	  font-family: 'Montserrat', sans-serif;
       @media (min-width: 768px) {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       @media (min-width: 1024px) {
@@ -48,7 +48,7 @@ ${reset}
 h1,h2 {
 	font-family: 'Source Serif Pro', serif;
 	font-weight:700;
-	text-align:center;
+	
 	font-size:1.8em;
 	line-height:1.6;
 }
@@ -56,12 +56,12 @@ h1,h2 {
 h2 {
 	margin:1em;
 }
-h3 {
 
-font-family: 'Montserrat', sans-serif;
-font-weight:600;
-padding-top:.5em;
-padding-bottom:.5em;
+h3 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight:600;
+	padding-top:.5em;
+	padding-bottom:.5em;
 }
 
 p {
@@ -70,6 +70,7 @@ p {
 	line-height:1.4em;
 	font-weight:400;
 }
+
 img {
 	width:100%;
 }
@@ -85,8 +86,27 @@ img {
 	min-height: 100vh;
 	${'' /* height: 100vh; */}
 	width: 100vw;
-	
 }
 
+.StikstofImage {
+	height: 20%;
+	width: auto;
+}
+
+.imageRight {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+
+.textLeft {
+	padding: 1em;
+	position: absolute;
+	top: 10%;
+	left: 30vw;
+	width: 50vw;
+	color: colors.darkBlue;
+	background-color: grey;
+}
 
 `;

@@ -6,25 +6,31 @@ import {
 	Section,
 	FlexContainer,
 	FlexItem,
+	SectionTitle,
+	LightSection,
 } from '../Components/StyledComponents';
 
 const SelectCountry = (props) => {
 	const { countries, setActiveCountry } = props;
 
 	return (
-		<Section>
+		<LightSection>
 			<FlexContainer>
-				<FlexItem>
+				<SectionTitle>
 					<h2>
 						Er is veel luchtvervuiling in Europa.
 						<br /> Welk land wil je ontdekken?
 					</h2>
-				</FlexItem>
+				</SectionTitle>
 				<FlexItem>
 					<FlexContainer flexDirection="row" alignItems="baseline">
 						{countries.map((d) => (
 							<FlexItem key={d.name}>
-								<img src={d.icon} alt="" />
+								<img
+									src={d.icon}
+									style={{ fill: 'blue' }}
+									alt=""
+								/>
 								<button onClick={() => setActiveCountry(d)}>
 									{d.name}
 								</button>
@@ -33,7 +39,7 @@ const SelectCountry = (props) => {
 					</FlexContainer>
 				</FlexItem>
 			</FlexContainer>
-		</Section>
+		</LightSection>
 	);
 };
 

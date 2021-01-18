@@ -36,6 +36,11 @@ export const Section = styled.section`
 	scroll-snap-align: start;
 `;
 
+export const LightSection = styled(Section)`
+	background-color: ${colors.lightBlue};
+	color: ${colors.darkBlue};
+`;
+
 export const GridContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -70,8 +75,7 @@ export const FlexContainer = styled.div`
 	display: flex;
 	flex-direction: ${(props) => props.flexDirection || 'column'};
 	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
-	background: ${(props) =>
-		props.darkTheme ? colors.darkBlue : colors.lightBlue};
+	background: ${(props) => (props.darkTheme ? colors.darkBlue : '')};
 	align-items: stretch;
 	justify-content: space-around;
 	flex: 1;
@@ -82,11 +86,17 @@ export const FlexItem = styled.div`
 	flex-direction: column;
 	padding: 1em;
 	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
-	background: ${(props) =>
-		props.darkTheme ? colors.darkBlue : colors.lightBlue};
+	background: ${(props) => (props.darkTheme ? colors.lightBlue : '')};
 	flex: 1;
 `;
 
-export const PositionParent = styled.div`
+export const SectionTitle = styled(FlexItem)`
+	color: ${colors.white};
+	background-color: ${colors.darkBlue};
+	width: 70%;
+	text-align: left;
+`;
+
+export const PositionSection = styled.div`
 	position: relative;
 `;
