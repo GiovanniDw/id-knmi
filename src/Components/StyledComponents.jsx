@@ -27,7 +27,9 @@ export const Section = styled.section`
 	min-width: 100%;
 
 	align-items: center;
-	background-color: ${colors.primary};
+	/* background-color: ${(props) => (props.bg ? colors.primary : 'white')}; */
+	background: ${(props) =>
+		props.darkTheme ? colors.darkBlue : colors.white};
 	color: white;
 	padding: 7%;
 	border: 1px solid green;
@@ -67,6 +69,9 @@ export const GridCol = styled.div`
 export const FlexContainer = styled.div`
 	display: flex;
 	flex-direction: ${(props) => props.flexDirection || 'column'};
+	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
+	background: ${(props) =>
+		props.darkTheme ? colors.darkBlue : colors.lightBlue};
 	align-items: stretch;
 	justify-content: space-around;
 	flex: 1;
@@ -76,5 +81,12 @@ export const FlexItem = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 1em;
+	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
+	background: ${(props) =>
+		props.darkTheme ? colors.darkBlue : colors.lightBlue};
 	flex: 1;
+`;
+
+export const PositionParent = styled.div`
+	position: relative;
 `;

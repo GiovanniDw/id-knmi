@@ -19,7 +19,7 @@ export const Intro = () => {
 		});
 
 		gsap.to(headingRef.current, {
-			x: -500,
+			x: -300,
 			opacity: 0,
 			scrollTrigger: {
 				trigger: headingRef.current,
@@ -33,7 +33,7 @@ export const Intro = () => {
 	}, []);
 
 	return (
-		<Section>
+		<Section darkTheme>
 			<h1 ref={headingRef} className="InitialHeading">
 				Wat gebeurt er met luchtvervuiling wanneer een virus Europeanen
 				dwingt om thuis te blijven?{' '}

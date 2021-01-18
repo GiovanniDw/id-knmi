@@ -15,11 +15,14 @@ const ExplainNo = () => {
 	return (
 		<Section>
 			<FlexContainer>
-				<FlexItem>
+				<FlexItem className="class" darkTheme>
 					<h2>Over welke luchtvervuiling hebben we het?</h2>
 				</FlexItem>
 				<FlexItem>
 					<FlexContainer flexDirection="row">
+						<FlexItem>
+							<img src={no2desc} alt="" />
+						</FlexItem>
 						<FlexItem size="1">
 							<h3>Wat is NO2? </h3>
 							<p>
@@ -29,23 +32,15 @@ const ExplainNo = () => {
 								gedeelte door het autoverkeer wordt
 								geproduceerd.
 							</p>
-							<img src={no2desc} alt="" />
-						</FlexItem>
-						<FlexItem size="1">
-							<h3>Wat doet het met je gezondheid? </h3>
 							<p>
 								Wanneer mensen stikstofdioxide inademen, kan dit
 								leiden tot longirritatie, verminderde weerstand,
-								en infecties van de luchtwegen.
-							</p>
-							<p>
-								Chronische blootstelling aan huidige niveaus van
+								en infecties van de luchtwegen. Chronische
+								blootstelling aan huidige niveaus van
 								stikstofdioxide leidt tot een gemiddelde
-								levensduur verkorting van 4 maanden.
-							</p>
-							<p>
-								Er was al langere tijd bekend dat fijn stof
-								leidt tot vroegere sterfte.
+								levensduur verkorting van 4 maanden. Er was al
+								langere tijd bekend dat fijn stof leidt tot
+								vroegere sterfte.
 							</p>
 						</FlexItem>
 					</FlexContainer>

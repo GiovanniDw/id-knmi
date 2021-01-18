@@ -1,11 +1,16 @@
+/* eslint-disable indent */
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import reset from 'styled-reset';
 export const colors = {
 	primary: '#12184D',
+	secondary: '#D8E6F8',
+	accent: '#E95355',
 	primaryText: 'white',
 	red: '#F80D0D',
 	darkBlue: '#12184D',
+	lightBlue: '#d8e6f8',
+	white: '#fff',
 };
 
 export const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
@@ -23,7 +28,8 @@ ${reset}
 :root {
 
 	html, body {
-		background-color:${colors.darkBlue};
+		background-color:${(props) => (props.bg ? props.bg : colors.primary)};
+		font-family: 'Montserrat', sans-serif;
 	}
 
       font-size: 14px;
@@ -75,16 +81,11 @@ img {
 	overflow-y: hidden;
 }
 
-
-
-body {
-	font-family: 'Montserrat', sans-serif;
-}
-
 .App {
 	min-height: 100vh;
 	${'' /* height: 100vh; */}
 	width: 100vw;
+	
 }
 
 
