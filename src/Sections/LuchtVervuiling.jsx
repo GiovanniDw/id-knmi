@@ -25,8 +25,6 @@ const LuchtVervuiling = (props) => {
 				<FlexItem>
 					<FlexContainer flexDirection="row">
 						<FlexItem>
-							<Map mapURL="/mapid-2019" />
-
 							<p>
 								De lucht vervuiling is verminderd in 2020, door
 								de corona crisis. Deze maatregelen hebben hier
@@ -35,10 +33,7 @@ const LuchtVervuiling = (props) => {
 						</FlexItem>
 
 						<FlexItem>
-							<h3>Thuiswerkadvies</h3>
-							<p>Vliegverbod voor bepaalde landen</p>
-							<p>Maatregelen worden verlengd </p>
-							<p>Vanaf 1 juni weer versoepelingen</p>
+							<Map mapURL="/mapid-2019" />
 						</FlexItem>
 					</FlexContainer>
 				</FlexItem>

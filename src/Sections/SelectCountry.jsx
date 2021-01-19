@@ -23,7 +23,7 @@ const SelectCountry = (props) => {
 					</h2>
 				</SectionTitle>
 				<FlexItem>
-					<FlexContainer flexDirection="row" alignItems="baseline">
+					<FlexContainer flexDirection="row" alignItems="stretch">
 						{countries.map((d) => (
 							<FlexItem key={d.name}>
 								<img

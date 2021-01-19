@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, useState, useEffect } from 'react';
 
 import {
 	GridContainer,
@@ -12,9 +12,16 @@ import {
 
 import no2desc from '../assets/no2desc.svg';
 
-const ExplainNo = (props, ref) => {
+const ExplainNo = (props) => {
+	// const { childRef } = props;
+	// const [state, setState] = useState();
+
+	// useEffect(() => {
+	// 	childRef.current = state;
+	// }, [state]);
+
 	return (
-		<Section ref={ref}>
+		<Section>
 			<FlexContainer>
 				<SectionTitle>
 					<h2>Over welke luchtvervuiling hebben we het?</h2>

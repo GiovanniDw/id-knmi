@@ -5,11 +5,16 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-import { Section } from '../Components/StyledComponents';
+import { Section, FlexContainer } from '../Components/StyledComponents';
 
-export const Intro = () => {
+export const Intro = (props) => {
+	const { introRef } = props;
 	const headingRef = useRef();
-	const [visibility, setVisibility] = useState(false);
+	const [visibility, setVisibility] = useState();
+
+	useEffect(() => {
+		introRef.current = visibility;
+	}, [visibility]);
 
 	useEffect(() => {
 		gsap.from(headingRef.current, {
@@ -30,14 +35,19 @@ export const Intro = () => {
 				toggleActions: 'restart pause reverse pause',
 			},
 		});
-	}, []);
+	}, [headingRef]);
 
 	return (
-		<Section darkTheme>
-			<h1 ref={headingRef} className="InitialHeading">
-				Wat gebeurt er met luchtvervuiling wanneer een virus Europeanen
-				dwingt om thuis te blijven?{' '}
-			</h1>
+		<Section>
+			<FlexContainer>
+				<h1 ref={headingRef} className="InitialHeading">
+					<span ref={introRef}>
+						{' '}
+						Wat gebeurt er met luchtvervuiling wanneer een virus
+						Europeanen dwingt om thuis te blijven?{' '}
+					</span>
+				</h1>
+			</FlexContainer>
 		</Section>
 	);
 };

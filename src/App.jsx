@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import useIsInViewport from 'use-is-in-viewport';
 import useEarthEngine from './hooks/useEarthEngine';
 import Map from './Components/Map';
-// import ExplainNo from './Sections/ExplainNo';
+import ExplainNo from './Sections/ExplainNo';
 import NoTwoExplination from './Sections/NoTwoExplination';
 import LuchtVervuiling from './Sections/LuchtVervuiling';
 import Intro from './Sections/Intro';
@@ -27,41 +27,40 @@ export const App = () => {
 	];
 
 	const [activeCountry, setActiveCountry] = useState(Countries[0]);
-	const [backgroundColor, setBackgroundColor] = useState('blue');
+	const [backgroundColor, setBackgroundColor] = useState();
 	const appContainerRef = useRef();
 
-	const [isInViewport, ExplainNoRef] = useIsInViewport();
+	const [isInViewport, IntroRef] = useIsInViewport();
 
 	useEffect(() => {
-		console.log(activeCountry);
-		return;
-	}, []);
+		console.log(isInViewport);
+		isInViewport
+			? setBackgroundColor(colors.darkBlue)
+			: setBackgroundColor(colors.white);
+	}, [isInViewport]);
 
 	return (
 		<AppContainer ref={appContainerRef} className="App">
-			<Intro />
+			<Intro introRef={IntroRef} />
 			<NoTwoExplination />
-			{/* <ExplainNo ref={ExplainNoRef} /> */}
+			<ExplainNo />
 			<SelectCountry
 				setActiveCountry={setActiveCountry}
 				countries={Countries}
 			/>
 
 			{!activeCountry ? (
-				console.log(activeCountry)
+				''
 			) : (
 				<>
 					<LuchtVervuiling activeCountry={activeCountry} />
 					<Section className="section-4">
 						<Map mapURL={'/mapid-2020'} />
 					</Section>
-					)
 				</>
 			)}
 
-			<GlobalStyle
-			// bg={backgroundColor}
-			/>
+			<GlobalStyle bg={backgroundColor} />
 		</AppContainer>
 	);
 };

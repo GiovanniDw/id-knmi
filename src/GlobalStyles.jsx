@@ -28,8 +28,9 @@ ${reset}
 :root {
 
 	html, body {
-		background-color:${(props) => (props.bg ? props.bg : colors.primary)};
+		background-color:${(props) => (props.bg ? props.bg : props.bg)};
 		font-family: 'Montserrat', sans-serif;
+		transition-duration:500ms;
 	}
 
       font-size: 14px;
@@ -80,6 +81,7 @@ img {
 	line-height: 150%;
 	font-size: 2em;
 	overflow-y: hidden;
+	color:${colors.white};
 }
 
 .App {
@@ -105,8 +107,8 @@ img {
 	top: 10%;
 	left: 30vw;
 	width: 50vw;
-	color: colors.darkBlue;
-	background-color: grey;
+	color: ${colors.darkBlue};
+	background-color: ${colors.lightBlue};
 }
 
 `;

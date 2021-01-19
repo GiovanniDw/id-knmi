@@ -28,8 +28,7 @@ export const Section = styled.section`
 
 	align-items: center;
 	/* background-color: ${(props) => (props.bg ? colors.primary : 'white')}; */
-	background: ${(props) =>
-		props.darkTheme ? colors.darkBlue : colors.white};
+	background: ${(props) => (props.darkTheme ? colors.darkBlue : '')};
 	color: white;
 	padding: 7%;
 	border: 1px solid green;
@@ -37,6 +36,7 @@ export const Section = styled.section`
 `;
 
 export const LightSection = styled(Section)`
+	padding-top: 3em;
 	background-color: ${colors.lightBlue};
 	color: ${colors.darkBlue};
 `;
@@ -76,14 +76,15 @@ export const FlexContainer = styled.div`
 	flex-direction: ${(props) => props.flexDirection || 'column'};
 	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
 	background: ${(props) => (props.darkTheme ? colors.darkBlue : '')};
-	align-items: stretch;
+
 	justify-content: space-around;
 	flex: 1;
 `;
 
 export const FlexItem = styled.div`
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
+	flex-direction: ${(props) => props.flexDirection || 'column'};
 	padding: 1em;
 	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
 	background: ${(props) => (props.darkTheme ? colors.lightBlue : '')};
@@ -93,8 +94,9 @@ export const FlexItem = styled.div`
 export const SectionTitle = styled(FlexItem)`
 	color: ${colors.white};
 	background-color: ${colors.darkBlue};
-	width: 70%;
+	/* width: 70%; */
 	text-align: left;
+	align-self: start;
 `;
 
 export const PositionSection = styled.div`
