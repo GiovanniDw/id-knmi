@@ -86,11 +86,11 @@ export const Intro = (props) => {
 export default Intro;
 
 const Section = styled.section`
+	overflow-x: hidden;
 	div {
 		width: 100%;
 		height: 100%;
 		background-color: ${colors.darkBlue};
-		overflow-x: hidden;
 	}
 
 	img {

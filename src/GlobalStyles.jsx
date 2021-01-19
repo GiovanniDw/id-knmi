@@ -51,7 +51,7 @@ h1,h2 {
 	font-family: 'Montserrat', serif;
 	font-weight:700;
 	
-	font-size:1.8em;
+	font-size:1.5em;
 	line-height:1.6;
 }
 
