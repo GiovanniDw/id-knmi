@@ -1,8 +1,5 @@
 import React from 'react';
 import {
-	GridContainer,
-	GridRow,
-	GridCol,
 	Section,
 	FlexContainer,
 	FlexItem,
@@ -16,23 +13,24 @@ const LuchtVervuiling = (props) => {
 	return (
 		<Section>
 			<FlexContainer>
-				<SectionTitle>
+				<SectionTitle alignSelf="flex-end">
 					<h2>
 						Hoe zit het met luchtvervuiling in{' '}
 						{activeCountry ? activeCountry.name : 'Nederland'}
 					</h2>
 				</SectionTitle>
-				<FlexItem>
-					<FlexContainer flexDirection="row">
-						<FlexItem>
-							<p>
-								De lucht vervuiling is verminderd in 2020, door
-								de corona crisis. Deze maatregelen hebben hier
-								invloed op gehad.
-							</p>
+				<FlexItem flexGrow="1" alignItems="stretch">
+					<FlexContainer
+						flexDirection="row"
+						justifyContent="space-around"
+						alignItems="stretch"
+						alignContent="center"
+					>
+						<FlexItem flexGrow="1" alignSelf="center">
+							<Map mapURL="/mapid-2019" />
 						</FlexItem>
 
-						<FlexItem>
+						<FlexItem flexGrow="1" alignSelf="center">
 							<Map mapURL="/mapid-2019" />
 						</FlexItem>
 					</FlexContainer>

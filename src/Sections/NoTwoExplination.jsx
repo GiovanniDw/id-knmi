@@ -18,7 +18,7 @@ export const NoTwoExplination = () => {
 				<SectionTitle>
 					<h2>Over welke luchtvervuiling hebben we het?</h2>
 				</SectionTitle>
-				<section className="imageRight">
+				<div className="imageRight">
 					<img
 						src={StikstofPartOne}
 						alt=""
@@ -34,8 +34,8 @@ export const NoTwoExplination = () => {
 						alt=""
 						className="StikstofImage"
 					/>
-				</section>
-				<section className="textLeft">
+				</div>
+				<div className="textLeft">
 					<h3>Wat is NO2? </h3>
 					<p>
 						NO2 of stikstofdioxide is een stof die vrijkomt bij
@@ -51,7 +51,7 @@ export const NoTwoExplination = () => {
 						levensduur verkorting van 4 maanden. Er was al langere
 						tijd bekend dat fijn stof leidt tot vroegere sterfte.
 					</p>
-				</section>
+				</div>
 			</PositionSection>
 		</Section>
 	);

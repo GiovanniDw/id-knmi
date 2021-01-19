@@ -36,7 +36,7 @@ export const App = () => {
 		console.log(isInViewport);
 		isInViewport
 			? setBackgroundColor(colors.darkBlue)
-			: setBackgroundColor(colors.white);
+			: setBackgroundColor(colors.lightBrown);
 	}, [isInViewport]);
 
 	return (

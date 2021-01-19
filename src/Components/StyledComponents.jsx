@@ -24,79 +24,63 @@ export const Intro = styled.section`
 export const Section = styled.section`
 	display: flex;
 	min-height: 100vh;
-	min-width: 100%;
+	max-width: 100%;
 
-	align-items: center;
+	align-items: stretch;
+
+	justify-content: ${(props) => props.justifyContent || 'stretch'};
 	/* background-color: ${(props) => (props.bg ? colors.primary : 'white')}; */
 	background: ${(props) => (props.darkTheme ? colors.darkBlue : '')};
 	color: white;
-	padding: 7%;
-	border: 1px solid green;
+	padding-left: 7%;
+	padding-right: 7%;
+	border-top: 1px solid ${colors.lightBrown};
 	scroll-snap-align: start;
 `;
 
 export const LightSection = styled(Section)`
-	padding-top: 3em;
+	/* padding-top: 3em; */
 	background-color: ${colors.lightBlue};
 	color: ${colors.darkBlue};
 `;
 
-export const GridContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	max-width: 100%;
-
-	flex: 1;
-	justify-content: space-around;
-	align-content: stretch;
-	/* margin: ${px2vw(32)}; */
-	/* height: 100%; */
-	/* max-width: 100%; */
-	border: 1px solid blue;
-`;
-
-export const GridRow = styled.div`
-	display: flex;
-	flex: 1;
-	min-height: 100%;
-	justify-content: space-between;
-	align-items: stretch;
-`;
-
-export const GridCol = styled.div`
-	padding: 1em;
-	flex: ${(props) => (props ? props.size : 1)};
-	border: 1px solid red;
-	display: block;
-	align-items: stretch;
-`;
-
 export const FlexContainer = styled.div`
 	display: flex;
-	flex-direction: ${(props) => props.flexDirection || 'column'};
-	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
-	background: ${(props) => (props.darkTheme ? colors.darkBlue : '')};
 
-	justify-content: space-around;
-	flex: 1;
+	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
+	background: ${(props) =>
+		props.darkTheme ? colors.darkBlue : colors.white};
+	align-items: ${(props) => props.alignItems || 'stretch'};
+	align-content: ${(props) => props.alignContent || 'normal'};
+	justify-content: ${(props) => props.justifyContent || 'flex-start'};
+	flex-grow: ${(props) => props.flexGrow || '1'};
+	flex-direction: column;
+	@media (min-width: 768px) {
+		flex-direction: ${(props) => props.flexDirection || 'column'};
+	}
 `;
 
 export const FlexItem = styled.div`
 	display: flex;
+	align-items: ${(props) => props.alignItems || 'stretch'};
 	/* flex-direction: column; */
+	justify-content: ${(props) => props.justifyContent || 'flex-start'};
 	flex-direction: ${(props) => props.flexDirection || 'column'};
-	padding: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
 	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
-	background: ${(props) => (props.darkTheme ? colors.lightBlue : '')};
-	flex: 1;
+	background: ${(props) => (props.darkTheme ? colors.darkBlue : '')};
+	flex-grow: ${(props) => props.flexGrow || '0'};
+	align-self: ${(props) => props.alignSelf || 'auto'};
+	word-wrap: normal;
 `;
 
 export const SectionTitle = styled(FlexItem)`
 	color: ${colors.white};
 	background-color: ${colors.darkBlue};
-	/* width: 70%; */
-	text-align: left;
-	align-self: start;
+	max-width: 70%;
+
+	align-self: ${(props) => props.alignSelf || 'left'};
 `;
 
 export const PositionSection = styled.div`

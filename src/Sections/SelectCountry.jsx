@@ -1,9 +1,5 @@
 import React from 'react';
 import {
-	GridContainer,
-	GridRow,
-	GridCol,
-	Section,
 	FlexContainer,
 	FlexItem,
 	SectionTitle,
@@ -12,20 +8,25 @@ import {
 
 const SelectCountry = (props) => {
 	const { countries, setActiveCountry } = props;
-
 	return (
-		<LightSection>
-			<FlexContainer>
-				<SectionTitle>
+		<LightSection justifyContent="stretch">
+			<FlexContainer alignItems="space-between" justifyContent="stretch">
+				<SectionTitle alignSelf="flex-start">
 					<h2>
 						Er is veel luchtvervuiling in Europa.
 						<br /> Welk land wil je ontdekken?
 					</h2>
 				</SectionTitle>
-				<FlexItem>
-					<FlexContainer flexDirection="row" alignItems="stretch">
+				<FlexItem darkTheme flexGrow="0" alignItems="stretch">
+					<FlexContainer
+						alignItems="center"
+						alignContent="center"
+						flexDirection="row"
+						justifyContent="space-between"
+						darkTheme
+					>
 						{countries.map((d) => (
-							<FlexItem key={d.name}>
+							<FlexItem darkTheme key={d.name} flexGrow="1">
 								<img
 									src={d.icon}
 									style={{ fill: 'blue' }}

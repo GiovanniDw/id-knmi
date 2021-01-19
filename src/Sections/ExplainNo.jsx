@@ -1,9 +1,6 @@
 import React, { forwardRef, useState, useEffect } from 'react';
 
 import {
-	GridContainer,
-	GridRow,
-	GridCol,
 	Section,
 	FlexContainer,
 	FlexItem,
@@ -21,17 +18,26 @@ const ExplainNo = (props) => {
 	// }, [state]);
 
 	return (
-		<Section>
-			<FlexContainer>
-				<SectionTitle>
+		<Section justifyContent="stretch">
+			<FlexContainer alignItems="space-between" justifyContent="stretch">
+				<SectionTitle alignSelf="flex-start">
 					<h2>Over welke luchtvervuiling hebben we het?</h2>
 				</SectionTitle>
-				<FlexItem>
-					<FlexContainer flexDirection="row">
+				<FlexItem
+					flexGrow="1"
+					alignItems="center"
+					justifyContent="space-evenly"
+					flexDirection="row"
+				>
+					<FlexContainer
+						flexDirection="row"
+						alignItems="stretch"
+						justifyContent="space-evenly"
+					>
 						<FlexItem>
 							<img src={no2desc} alt="" />
 						</FlexItem>
-						<FlexItem darkTheme size="1">
+						<FlexItem darkTheme>
 							<h3>Wat is NO2? </h3>
 							<p>
 								NO2 of stikstofdioxide is een stof die vrijkomt

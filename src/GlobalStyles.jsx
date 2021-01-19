@@ -3,13 +3,13 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import reset from 'styled-reset';
 export const colors = {
-	primary: '#12184D',
+	primary: '#1E3D5D',
 	secondary: '#D8E6F8',
 	accent: '#E95355',
 	primaryText: 'white',
 	red: '#F80D0D',
-	darkBlue: '#12184D',
-	lightBlue: '#d8e6f8',
+	darkBlue: '#1E3D5D',
+	lightBrown: '#CEC3BC',
 	white: '#fff',
 };
 
@@ -28,7 +28,8 @@ ${reset}
 :root {
 
 	html, body {
-		background-color:${(props) => (props.bg ? props.bg : props.bg)};
+		${'' /* background-color:${(props) => (props.bg ? props.bg : props.bg)}; */}
+		background-color: ${colors.lightBrown};
 		font-family: 'Montserrat', sans-serif;
 		transition-duration:500ms;
 	}
@@ -76,14 +77,6 @@ img {
 	width:100%;
 }
 
-.InitialHeading {
-	text-align: center;
-	line-height: 150%;
-	font-size: 2em;
-	overflow-y: hidden;
-	color:${colors.white};
-}
-
 .App {
 	min-height: 100vh;
 	${'' /* height: 100vh; */}
@@ -108,7 +101,7 @@ img {
 	left: 30vw;
 	width: 50vw;
 	color: ${colors.darkBlue};
-	background-color: ${colors.lightBlue};
+	background-color: ${colors.lightBrown};
 }
 
 `;
