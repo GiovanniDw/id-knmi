@@ -15,8 +15,8 @@ const LuchtVervuiling = (props) => {
 			<FlexContainer>
 				<SectionTitle alignSelf="flex-end">
 					<h2>
-						Hoe zit het met luchtvervuiling in{' '}
-						{activeCountry ? activeCountry.name : 'Nederland'}
+						Hoe zit het met luchtvervuiling <br />
+						in {activeCountry ? activeCountry.name : 'Nederland'} ?
 					</h2>
 				</SectionTitle>
 				<FlexItem flexGrow="1" alignItems="stretch">

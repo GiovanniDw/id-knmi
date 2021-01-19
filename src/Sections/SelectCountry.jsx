@@ -17,7 +17,7 @@ const SelectCountry = (props) => {
 						<br /> Welk land wil je ontdekken?
 					</h2>
 				</SectionTitle>
-				<FlexItem darkTheme flexGrow="0" alignItems="stretch">
+				<FlexItem darkTheme flexGrow="1" alignItems="stretch">
 					<FlexContainer
 						alignItems="center"
 						alignContent="center"

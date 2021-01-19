@@ -37,7 +37,7 @@ export const Intro = (props) => {
 			scrollTrigger: {
 				trigger: headingRef.current,
 				// top refers to the element 30% refers to the percentage of the viewport height
-				start: '10% 20%',
+				start: '20% 20%',
 				markers: true,
 				scrub: true,
 				toggleActions: 'restart pause reverse pause',
@@ -49,16 +49,16 @@ export const Intro = (props) => {
 		gsap.from(introSvgRef.current, {
 			x: 0,
 			opacity: 1,
-			duration: 0.5,
+			duration: 0.4,
 		});
 
 		gsap.to(introSvgRef.current, {
-			x: 300,
+			x: 400,
 			opacity: 0,
 			scrollTrigger: {
 				trigger: introSvgRef.current,
 				// top refers to the element 30% refers to the percentage of the viewport height
-				start: 'top top',
+				start: 'top 20%',
 				markers: true,
 				scrub: true,
 				toggleActions: 'restart pause reverse pause',
@@ -90,6 +90,7 @@ const Section = styled.section`
 		width: 100%;
 		height: 100%;
 		background-color: ${colors.darkBlue};
+		overflow-x: hidden;
 	}
 
 	img {

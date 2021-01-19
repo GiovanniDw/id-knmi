@@ -1,42 +1,27 @@
 import React from 'react';
 
 import { colors } from '../GlobalStyles';
+import styled from 'styled-components';
 import {
+	FlexContainer,
 	PositionSection,
 	SectionTitle,
 	Section,
 } from '../Components/StyledComponents';
-
-import StikstofPartOne from '../assets/StikstofPartOne.svg';
-import StikstofPartTwo from '../assets/StikstofPartTwo.svg';
-import StikstofPartThree from '../assets/StikstofPartThree.svg';
+import NoTwoImage from '../Components/NoTwoImage';
 
 export const NoTwoExplination = () => {
 	return (
-		<Section>
+		<AlternativeSection>
 			<PositionSection>
 				<SectionTitle>
-					<h2>Over welke luchtvervuiling hebben we het?</h2>
+					<h2>
+						Over welke luchtvervuiling <br /> hebben we het?
+					</h2>
 				</SectionTitle>
-				<div className="imageRight">
-					<img
-						src={StikstofPartOne}
-						alt=""
-						className="StikstofImage"
-					/>
-					<img
-						src={StikstofPartTwo}
-						alt=""
-						className="StikstofImage"
-					/>
-					<img
-						src={StikstofPartThree}
-						alt=""
-						className="StikstofImage"
-					/>
-				</div>
-				<div className="textLeft">
-					<h3>Wat is NO2? </h3>
+				<NoTwoImage />
+				<div className="textRight">
+					<h3>Wat is NO2?</h3>
 					<p>
 						NO2 of stikstofdioxide is een stof die vrijkomt bij
 						verbrandingsprocessen. Stikstofdioxide (NO2) is een gas
@@ -53,8 +38,41 @@ export const NoTwoExplination = () => {
 					</p>
 				</div>
 			</PositionSection>
-		</Section>
+		</AlternativeSection>
 	);
 };
 
 export default NoTwoExplination;
+
+const AlternativeSection = styled(Section)`
+	.imageLeft {
+		flex-direction: row;
+		flex-wrap: wrap;
+		position: absolute;
+		left: 0;
+		width: 50vw;
+
+		img {
+			height: 30vh;
+			width: 50vw;
+		}
+	}
+
+	.textRight {
+		padding: 2em;
+		position: absolute;
+		top: 15vh;
+		right: 0;
+		width: 50vw;
+		color: ${colors.darkBlue};
+		background-color: ${colors.lightBrown};
+
+		h3 {
+			font-weight: black;
+		}
+
+		p {
+			font-weight: 600;
+		}
+	}
+`;

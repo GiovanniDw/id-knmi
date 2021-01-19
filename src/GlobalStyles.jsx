@@ -48,7 +48,7 @@ ${reset}
 
 
 h1,h2 {
-	font-family: 'Source Serif Pro', serif;
+	font-family: 'Montserrat', serif;
 	font-weight:700;
 	
 	font-size:1.8em;
@@ -56,7 +56,7 @@ h1,h2 {
 }
 
 h2 {
-	margin:1em;
+	${'' /* margin:1em; */}
 }
 
 h3 {
@@ -71,6 +71,9 @@ p {
 	padding-bottom:.5em;
 	line-height:1.4em;
 	font-weight:400;
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+  	hyphens: auto;
 }
 
 img {
@@ -81,27 +84,6 @@ img {
 	min-height: 100vh;
 	${'' /* height: 100vh; */}
 	width: 100vw;
-}
-
-.StikstofImage {
-	height: 20%;
-	width: auto;
-}
-
-.imageRight {
-	width: 50%;
-	display: flex;
-	flex-direction: column;
-}
-
-.textLeft {
-	padding: 1em;
-	position: absolute;
-	top: 10%;
-	left: 30vw;
-	width: 50vw;
-	color: ${colors.darkBlue};
-	background-color: ${colors.lightBrown};
 }
 
 `;

@@ -3,6 +3,7 @@ import useIsInViewport from 'use-is-in-viewport';
 import useEarthEngine from './hooks/useEarthEngine';
 import Map from './Components/Map';
 import ExplainNo from './Sections/ExplainNo';
+import OriginNo from './Sections/OriginNo';
 import NoTwoExplination from './Sections/NoTwoExplination';
 import LuchtVervuiling from './Sections/LuchtVervuiling';
 import Intro from './Sections/Intro';
@@ -43,7 +44,7 @@ export const App = () => {
 		<AppContainer ref={appContainerRef} className="App">
 			<Intro introRef={IntroRef} />
 			<NoTwoExplination />
-			<ExplainNo />
+			{/* <ExplainNo /> */}
 			<SelectCountry
 				setActiveCountry={setActiveCountry}
 				countries={Countries}
@@ -54,6 +55,7 @@ export const App = () => {
 			) : (
 				<>
 					<LuchtVervuiling activeCountry={activeCountry} />
+					<OriginNo />
 					<Section className="section-4">
 						<Map mapURL={'/mapid-2020'} />
 					</Section>

@@ -34,7 +34,7 @@ export const Section = styled.section`
 	color: white;
 	padding-left: 7%;
 	padding-right: 7%;
-	border-top: 1px solid ${colors.lightBrown};
+	/* border-top: 1px solid ${colors.lightBrown}; */
 	scroll-snap-align: start;
 `;
 
@@ -66,13 +66,18 @@ export const FlexItem = styled.div`
 	/* flex-direction: column; */
 	justify-content: ${(props) => props.justifyContent || 'flex-start'};
 	flex-direction: ${(props) => props.flexDirection || 'column'};
-	padding-left: 1em;
-	padding-right: 1em;
+	padding: 1.5em;
 	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
 	background: ${(props) => (props.darkTheme ? colors.darkBlue : '')};
 	flex-grow: ${(props) => props.flexGrow || '0'};
 	align-self: ${(props) => props.alignSelf || 'auto'};
 	word-wrap: normal;
+`;
+
+export const FlexTextItem = styled(FlexItem)`
+	background-color: ${colors.lightBrown};
+	color: ${colors.darkBlue};
+	align-self: center;
 `;
 
 export const SectionTitle = styled(FlexItem)`
@@ -81,8 +86,12 @@ export const SectionTitle = styled(FlexItem)`
 	max-width: 70%;
 
 	align-self: ${(props) => props.alignSelf || 'left'};
+
+	${(props) => (props.alignSelf === 'flex-end' ? 'text-align:right;' : '')}
 `;
 
 export const PositionSection = styled.div`
+	background-color: ${colors.white};
 	position: relative;
+	width: 100%;
 `;

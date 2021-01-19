@@ -5,6 +5,7 @@ import {
 	FlexContainer,
 	FlexItem,
 	SectionTitle,
+	FlexTextItem,
 } from '../Components/StyledComponents';
 
 import no2desc from '../assets/no2desc.svg';
@@ -31,13 +32,12 @@ const ExplainNo = (props) => {
 				>
 					<FlexContainer
 						flexDirection="row"
-						alignItems="stretch"
 						justifyContent="space-evenly"
 					>
-						<FlexItem>
+						<FlexItem flexGrow="1">
 							<img src={no2desc} alt="" />
 						</FlexItem>
-						<FlexItem darkTheme>
+						<FlexTextItem flexGrow="1">
 							<h3>Wat is NO2? </h3>
 							<p>
 								NO2 of stikstofdioxide is een stof die vrijkomt
@@ -56,7 +56,7 @@ const ExplainNo = (props) => {
 								langere tijd bekend dat fijn stof leidt tot
 								vroegere sterfte.
 							</p>
-						</FlexItem>
+						</FlexTextItem>
 					</FlexContainer>
 				</FlexItem>
 			</FlexContainer>
@@ -65,3 +65,5 @@ const ExplainNo = (props) => {
 };
 
 export default ExplainNo;
+
+//ik zit nog in die call trouwens lol
