@@ -11,7 +11,7 @@ export function PlaneBlue(props) {
 			viewBox="0 0 594 196"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			{...props}
+			className={props.className}
 			ref={props.selectChildRef}
 		>
 			<path d="M0 0h12.899l74.5 82.5 35 9.5H25.722L0 0z" fill="#298CD5" />

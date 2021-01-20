@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { gsap } from 'gsap';
 import styled from 'styled-components';
 import useIsInViewport from 'use-is-in-viewport';
 import {
@@ -17,6 +18,28 @@ const LuchtVervuiling = (props) => {
 	const [visibility, setVisibility] = useState();
 	const [isInViewport, useTriggerRef] = useIsInViewport();
 	const triggerRef = useRef();
+	const sixthHeadingRef = useRef();
+
+	useEffect(() => {
+		gsap.from(sixthHeadingRef.current, {
+			y: -100,
+			duration: 0.5,
+		});
+
+		gsap.to(sixthHeadingRef.current, {
+			y: 0,
+			duration: 0.5,
+			scrollTrigger: {
+				trigger: sixthHeadingRef.current,
+				// top refers to the element bottom refers to bottom of the viewport height
+				start: 'top bottom',
+				end: 'bottom top',
+				markers: true,
+				scrub: 0.3,
+				toggleActions: 'restart pause reverse pause',
+			},
+		});
+	}, [sixthHeadingRef]);
 
 	useEffect(() => {
 		useTriggerRef.current = visibility;
@@ -25,7 +48,7 @@ const LuchtVervuiling = (props) => {
 	return (
 		<SmallSection>
 			<FlexContainer>
-				<SectionTitle alignSelf="flex-end">
+				<SectionTitle ref={sixthHeadingRef} alignSelf="flex-end">
 					<h2>
 						Hoe zit het met luchtvervuiling <br />
 						in {activeCountry ? activeCountry.name : 'Nederland'} ?
@@ -61,6 +84,7 @@ const LuchtVervuiling = (props) => {
 								height="100%"
 								width="100%"
 								isInViewport={isInViewport}
+								uitstoot={activeCountry.uitstoot}
 							/>
 						</FlexItem>
 					</FlexContainer>

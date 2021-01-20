@@ -1,7 +1,7 @@
 import React, { forwardRef, useState, useEffect } from 'react';
 
 import styled from 'styled-components';
-
+import useIsInViewport from 'use-is-in-viewport';
 import {
 	Section,
 	FlexContainer,
@@ -16,7 +16,7 @@ import { CovidMeasures, UitstootChart } from '../Components/svg';
 const Measures = (props) => {
 	// const { childRef } = props;
 	// const [state, setState] = useState();
-
+	const [isInViewport, useTriggerRef] = useIsInViewport();
 	// useEffect(() => {
 	// 	childRef.current = state;
 	// }, [state]);
@@ -35,6 +35,7 @@ const Measures = (props) => {
 					</h2>
 				</SectionTitle>
 				<FlexContainer
+					ref={useTriggerRef}
 					flexGrow="1"
 					alignItems="flex-start"
 					flexDirection="column"
@@ -42,7 +43,10 @@ const Measures = (props) => {
 				>
 					<AnimatedContiner>
 						<div className="chart-container">
-							<CovidMeasures className="chart" />
+							<CovidMeasures
+								className="chart"
+								isInViewport={isInViewport}
+							/>
 						</div>
 					</AnimatedContiner>
 				</FlexContainer>

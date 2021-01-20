@@ -51,7 +51,7 @@ export const LightSection = styled(Section)`
 
 export const FlexContainer = styled.div`
 	display: flex;
-
+	overflow: hidden;
 	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
 	background: ${(props) =>
 		props.darkTheme ? colors.darkBlue : colors.white};

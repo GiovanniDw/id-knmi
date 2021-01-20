@@ -63,10 +63,14 @@ const OriginNo = (props) => {
 	const fifthHeadingRef = useRef();
 	const movingElementOneRef = useRef();
 	const movingElementTwoRef = useRef();
+	const movingElementThreeRef = useRef();
+	const movingElementFourRef = useRef();
+	const movingElementFiveRef = useRef();
+	const movingElementSixRef = useRef();
 
 	useEffect(() => {
 		gsap.from(fifthHeadingRef.current, {
-			y: -150,
+			y: -100,
 			duration: 0.5,
 		});
 
@@ -77,7 +81,7 @@ const OriginNo = (props) => {
 				trigger: fifthHeadingRef.current,
 				// top refers to the element bottom refers to bottom of the viewport height
 				start: 'bottom 80%',
-				end: '+=50%',
+				end: '+=40%',
 				// markers: true,
 				scrub: 0.3,
 				toggleActions: 'restart pause reverse pause',
@@ -160,7 +164,10 @@ const OriginNo = (props) => {
 						</div>
 						<div className="airport">
 							<Road className="road" />
-							<PlaneRed className="plane red" />
+							<PlaneRed
+								selectChildRef={movingElementThreeRef}
+								className="plane red"
+							/>
 							<PlaneBlue className="plane blue" />
 						</div>
 						<div className="airport">
