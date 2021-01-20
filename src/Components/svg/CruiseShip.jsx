@@ -3,8 +3,9 @@ import React from 'react';
 export function CruiseShip(props) {
 	return (
 		<svg
-			width={463}
-			height={163}
+			width="1em"
+			height="1em"
+			viewBox="0 0 463 163"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 			{...props}

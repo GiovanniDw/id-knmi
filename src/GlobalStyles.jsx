@@ -9,6 +9,7 @@ export const colors = {
 	primaryText: 'white',
 	red: '#F80D0D',
 	darkBlue: '#1E3D5D',
+	lightBlue: '#2196F3',
 	lightBrown: '#CEC3BC',
 	dark: '#24242C',
 	white: '#fff',

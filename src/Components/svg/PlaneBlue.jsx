@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+
 export function PlaneBlue(props) {
 	return (
 		<svg
@@ -9,6 +12,7 @@ export function PlaneBlue(props) {
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 			{...props}
+			ref={props.selectChildRef}
 		>
 			<path d="M0 0h12.899l74.5 82.5 35 9.5H25.722L0 0z" fill="#298CD5" />
 			<circle cx={206.512} cy={180.434} r={15.113} fill="#24242C" />

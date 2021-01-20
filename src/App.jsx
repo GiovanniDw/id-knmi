@@ -7,6 +7,8 @@ import OriginNo from './Sections/OriginNo';
 import NoTwoExplination from './Sections/NoTwoExplination';
 import LuchtVervuiling from './Sections/LuchtVervuiling';
 import Intro from './Sections/Intro';
+import Measures from './Sections/Measures';
+import RemainingNo from './Sections/RemainingNo';
 import { GlobalStyle, colors } from './GlobalStyles';
 import { AppContainer, Section } from './Components/StyledComponents';
 
@@ -19,12 +21,12 @@ import SelectCountry from './Sections/SelectCountry';
 import Belgie from './assets/Belgie.svg';
 import Nederland from './assets/Nederland.svg';
 import Duitsland from './assets/Duitsland.svg';
-
+import { UitstootChart } from './Components/svg';
 export const App = () => {
 	const Countries = [
-		{ name: 'Nederland', icon: Nederland },
-		{ name: 'Belgie', icon: Belgie },
-		{ name: 'Duitsland', icon: Duitsland },
+		{ name: 'Nederland', icon: Nederland, uitstoot: UitstootChart },
+		{ name: 'Belgie', icon: Belgie, uitstoot: UitstootChart },
+		{ name: 'Duitsland', icon: Duitsland, uitstoot: UitstootChart },
 	];
 
 	const [activeCountry, setActiveCountry] = useState(Countries[0]);
@@ -34,7 +36,6 @@ export const App = () => {
 	const [isInViewport, IntroRef] = useIsInViewport();
 
 	useEffect(() => {
-		console.log(isInViewport);
 		isInViewport
 			? setBackgroundColor(colors.darkBlue)
 			: setBackgroundColor(colors.lightBrown);
@@ -56,9 +57,11 @@ export const App = () => {
 				<>
 					<LuchtVervuiling activeCountry={activeCountry} />
 					<OriginNo />
-					<Section className="section-4">
+					<Measures activeCountry={activeCountry} />
+					<RemainingNo />
+					{/* <Section className="section-4">
 						<Map mapURL={'/mapid-2020'} />
-					</Section>
+					</Section> */}
 				</>
 			)}
 

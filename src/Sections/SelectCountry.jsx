@@ -1,17 +1,69 @@
 import React from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import useIsInViewport from 'use-is-in-viewport';
 import {
 	FlexContainer,
 	FlexItem,
 	SectionTitle,
 	LightSection,
+	SmallSection,
+	Button,
 } from '../Components/StyledComponents';
 
 const SelectCountry = (props) => {
 	const { countries, setActiveCountry } = props;
+
+	const thirdHeadingRef = useRef();
+	const countryRef = useRef();
+	const buttonsRef = useRef();
+
+	useEffect(() => {
+		gsap.from(thirdHeadingRef.current, {
+			y: 150,
+			duration: 0.5,
+		});
+
+		gsap.to(thirdHeadingRef.current, {
+			y: 0,
+			scrollTrigger: {
+				trigger: thirdHeadingRef.current,
+				// top refers to the element bottom refers to bottom of the viewport height
+				start: 'top bottom',
+				end: '+=50%',
+				// markers: true,
+				scrub: 0.3,
+				toggleActions: 'restart pause reverse pause',
+			},
+		});
+	}, [thirdHeadingRef]);
+
+	useEffect(() => {
+		gsap.from(countryRef.current.childNodes, {
+			y: 200,
+			opacity: 0,
+			duration: 0.7,
+		});
+
+		gsap.to(countryRef.current.childNodes, {
+			y: 0,
+			opacity: 1,
+			scrollTrigger: {
+				trigger: countryRef.current,
+				// top refers to the element bottom refers to bottom of the viewport height
+				start: 'top bottom',
+				end: '+=80%',
+				// markers: true,
+				scrub: 0.3,
+				toggleActions: 'restart pause reverse pause',
+			},
+		});
+	}, [countryRef]);
+
 	return (
-		<LightSection justifyContent="stretch">
+		<SmallSection justifyContent="stretch">
 			<FlexContainer alignItems="space-between" justifyContent="stretch">
-				<SectionTitle alignSelf="flex-start">
+				<SectionTitle ref={thirdHeadingRef} alignSelf="flex-start">
 					<h2>
 						Er is veel luchtvervuiling in Europa.
 						<br /> Welk land wil je ontdekken?
@@ -24,6 +76,7 @@ const SelectCountry = (props) => {
 						flexDirection="row"
 						justifyContent="space-between"
 						darkTheme
+						ref={countryRef}
 					>
 						{countries.map((d) => (
 							<FlexItem darkTheme key={d.name} flexGrow="1">
@@ -32,15 +85,15 @@ const SelectCountry = (props) => {
 									style={{ fill: 'blue' }}
 									alt=""
 								/>
-								<button onClick={() => setActiveCountry(d)}>
+								<Button onClick={() => setActiveCountry(d)}>
 									{d.name}
-								</button>
+								</Button>
 							</FlexItem>
 						))}
 					</FlexContainer>
 				</FlexItem>
 			</FlexContainer>
-		</LightSection>
+		</SmallSection>
 	);
 };
 

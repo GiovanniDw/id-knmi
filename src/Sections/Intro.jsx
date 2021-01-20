@@ -38,8 +38,8 @@ export const Intro = (props) => {
 				trigger: headingRef.current,
 				// top refers to the element 30% refers to the percentage of the viewport height
 				start: '20% 20%',
-				markers: true,
-				scrub: true,
+				// markers: true,
+				scrub: 0.3,
 				toggleActions: 'restart pause reverse pause',
 			},
 		});
@@ -59,8 +59,8 @@ export const Intro = (props) => {
 				trigger: introSvgRef.current,
 				// top refers to the element 30% refers to the percentage of the viewport height
 				start: 'top 20%',
-				markers: true,
-				scrub: true,
+				// markers: true,
+				scrub: 0.3,
 				toggleActions: 'restart pause reverse pause',
 			},
 		});

@@ -1,4 +1,7 @@
 import React from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+import { gsap } from 'gsap';
 
 import { colors } from '../GlobalStyles';
 import styled from 'styled-components';
@@ -8,19 +11,91 @@ import {
 	SectionTitle,
 	Section,
 } from '../Components/StyledComponents';
+
 import NoTwoImage from '../Components/NoTwoImage';
 
+import { NitrogenDioxide } from '../Components/svg';
+
 export const NoTwoExplination = () => {
+	const secondHeadingRef = useRef();
+	const noTwoTextRef = useRef();
+	const noTwoImageRef = useRef();
+
+	useEffect(() => {
+		gsap.from(secondHeadingRef.current, {
+			y: -150,
+			duration: 0.5,
+		});
+
+		gsap.to(secondHeadingRef.current, {
+			y: 0,
+			duration: 0.5,
+			scrollTrigger: {
+				trigger: secondHeadingRef.current,
+				// top refers to the element bottom refers to bottom of the viewport height
+				start: 'bottom 80%',
+				end: '+=50%',
+				// markers: true,
+				scrub: 0.3,
+				toggleActions: 'restart pause reverse pause',
+			},
+		});
+	}, [secondHeadingRef]);
+
+	useEffect(() => {
+		gsap.from(noTwoImageRef.current, {
+			x: -200,
+			opacity: 0,
+			duration: 0.5,
+		});
+
+		gsap.to(noTwoImageRef.current, {
+			x: 0,
+			opacity: 1,
+			scrollTrigger: {
+				trigger: noTwoImageRef.current,
+				// top refers to the element 30% refers to the percentage of the viewport height
+				start: 'top bottom',
+				end: '+=50%',
+				// markers: true,
+				scrub: 0.3,
+				toggleActions: 'restart pause reverse pause',
+			},
+		});
+	}, [noTwoImageRef]);
+
+	useEffect(() => {
+		gsap.from(noTwoTextRef.current, {
+			x: 300,
+			duration: 0.5,
+		});
+
+		gsap.to(noTwoTextRef.current, {
+			x: 0,
+			scrollTrigger: {
+				trigger: noTwoTextRef.current,
+				// top refers to the element 30% refers to the percentage of the viewport height
+				start: 'top bottom',
+				end: '+=50%',
+				// markers: true,
+				scrub: 0.3,
+				toggleActions: 'restart pause reverse pause',
+			},
+		});
+	}, [noTwoTextRef]);
+
 	return (
 		<AlternativeSection>
 			<PositionSection>
-				<SectionTitle>
+				<SectionTitle ref={secondHeadingRef} className="bottom">
 					<h2>
 						Over welke luchtvervuiling <br /> hebben we het?
 					</h2>
 				</SectionTitle>
-				<NoTwoImage />
-				<div className="textRight">
+				<div ref={noTwoImageRef} className="NoDiv">
+					<NitrogenDioxide className="NoIcon" />
+				</div>
+				<div ref={noTwoTextRef} className="textRight">
 					<h3>Wat is NO2?</h3>
 					<p>
 						NO2 of stikstofdioxide is een stof die vrijkomt bij
@@ -45,6 +120,20 @@ export const NoTwoExplination = () => {
 export default NoTwoExplination;
 
 const AlternativeSection = styled(Section)`
+	.NoDiv {
+		overflow-x: hidden;
+		position: absolute;
+		top: 30%;
+		left: 5%;
+		width: 35%;
+	}
+
+	.NoIcon {
+		overflow-x: hidden;
+		width: 100%;
+		height: 100%;
+	}
+
 	.imageLeft {
 		flex-direction: row;
 		flex-wrap: wrap;

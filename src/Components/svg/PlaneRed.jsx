@@ -9,6 +9,7 @@ export function PlaneRed(props) {
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 			{...props}
+			ref={props.selectChildRef}
 		>
 			<path d="M0 0h12.899l74.5 82.5 35 9.5H25.722L0 0z" fill="#EC1C24" />
 			<circle cx={206.512} cy={194.434} r={15.113} fill="#24242C" />

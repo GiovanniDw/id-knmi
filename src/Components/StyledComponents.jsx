@@ -90,6 +90,14 @@ export const SectionTitle = styled(FlexItem)`
 	background-color: ${colors.darkBlue};
 
 	width: 100%;
+
+	&.bottom {
+		padding-top: 1em;
+	}
+	&.top {
+		padding-bottom: 1em;
+	}
+
 	@media (min-width: 768px) {
 		max-width: 70%;
 		/* min-width: 50%; */
@@ -104,9 +112,19 @@ export const PositionSection = styled.div`
 	background-color: ${colors.white};
 	position: relative;
 	width: 100%;
+	overflow: hidden;
 `;
 
-// export const Button = styled.button`
-// 	border: 2px solid ${colors.darkBlue};
-// 	padding: 1em;
-// `;
+export const Button = styled.button`
+	background-color: ${colors.darkBlue};
+	color: ${colors.lightBrown};
+	border: 0.2rem solid ${colors.lightBrown};
+	border-radius: 0.6em;
+	padding: 0.6em;
+
+	&:hover {
+		background-color: ${colors.lightBrown};
+		color: ${colors.darkBlue};
+		border: 0.2rem solid ${colors.darkBlue};
+	}
+`;
