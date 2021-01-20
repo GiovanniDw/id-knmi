@@ -38,7 +38,12 @@ export const Section = styled.section`
 	scroll-snap-align: start;
 `;
 
+export const SmallSection = styled(Section)`
+	min-height: 50vh;
+`;
+
 export const LightSection = styled(Section)`
+	min-height: 50vh;
 	/* padding-top: 3em; */
 	background-color: ${colors.lightBlue};
 	color: ${colors.darkBlue};
@@ -83,7 +88,12 @@ export const FlexTextItem = styled(FlexItem)`
 export const SectionTitle = styled(FlexItem)`
 	color: ${colors.white};
 	background-color: ${colors.darkBlue};
-	max-width: 70%;
+
+	width: 100%;
+	@media (min-width: 768px) {
+		max-width: 70%;
+		/* min-width: 50%; */
+	}
 
 	align-self: ${(props) => props.alignSelf || 'left'};
 
@@ -95,3 +105,8 @@ export const PositionSection = styled.div`
 	position: relative;
 	width: 100%;
 `;
+
+// export const Button = styled.button`
+// 	border: 2px solid ${colors.darkBlue};
+// 	padding: 1em;
+// `;

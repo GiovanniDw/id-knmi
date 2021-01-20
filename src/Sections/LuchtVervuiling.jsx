@@ -1,6 +1,7 @@
 import React from 'react';
 import {
 	Section,
+	SmallSection,
 	FlexContainer,
 	FlexItem,
 	SectionTitle,
@@ -11,7 +12,7 @@ const LuchtVervuiling = (props) => {
 	const { activeCountry } = props;
 
 	return (
-		<Section>
+		<SmallSection>
 			<FlexContainer>
 				<SectionTitle alignSelf="flex-end">
 					<h2>
@@ -36,7 +37,7 @@ const LuchtVervuiling = (props) => {
 					</FlexContainer>
 				</FlexItem>
 			</FlexContainer>
-		</Section>
+		</SmallSection>
 	);
 };
 

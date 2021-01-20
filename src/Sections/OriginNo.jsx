@@ -1,14 +1,17 @@
 import React, { forwardRef, useState, useEffect } from 'react';
 
+import styled from 'styled-components';
+
 import {
 	Section,
 	FlexContainer,
 	FlexItem,
 	SectionTitle,
 	FlexTextItem,
+	SmallSection,
 } from '../Components/StyledComponents';
 
-import no2desc from '../assets/no2desc.svg';
+import { Road, PlaneBlue, PlaneRed } from '../Components/svg';
 
 const OriginNo = (props) => {
 	// const { childRef } = props;
@@ -19,7 +22,7 @@ const OriginNo = (props) => {
 	// }, [state]);
 
 	return (
-		<Section justifyContent="stretch">
+		<SmallSection>
 			<FlexContainer
 				darkTheme
 				alignItems="space-between"
@@ -28,17 +31,72 @@ const OriginNo = (props) => {
 				<SectionTitle alignSelf="flex-end">
 					<h2>Waar komt deze luchtvervuiling vandaan? </h2>
 				</SectionTitle>
-				<FlexItem
+				<FlexContainer
 					flexGrow="1"
-					alignItems="center"
-					justifyContent="space-evenly"
-					flexDirection="row"
-				></FlexItem>
+					alignItems="flex-start"
+					flexDirection="column"
+					darkTheme
+				>
+					<AnimatedContiner>
+						<div className="airport">
+							<Road className="road" />
+							<PlaneRed className="plane red" />
+							<PlaneBlue className="plane blue" />
+						</div>
+						<div className="airport">
+							<Road className="road" />
+							<PlaneRed className="plane red" />
+							<PlaneBlue className="plane blue" />
+						</div>
+						<div className="airport">
+							<Road className="road" />
+							<PlaneRed className="plane red" />
+							<PlaneBlue className="plane blue" />
+						</div>
+					</AnimatedContiner>
+				</FlexContainer>
 			</FlexContainer>
-		</Section>
+		</SmallSection>
 	);
 };
 
-export default OriginNo;
+const AnimatedContiner = styled.div`
+	align-self: center;
+	/* height: 100%; */
+	/* overflow: hidden; */
+	/* border: 2px solid red; */
+	width: 100%;
+	height: 100%;
+	/* position: relative; */
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-content: space-space-around;
 
-//ik zit nog in die call trouwens lol
+	.airport {
+		position: relative;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+
+		.plane {
+			position: absolute;
+			width: 300px;
+			height: 100px;
+			bottom: 1em;
+			left: 50%;
+
+			&.red {
+				left: 1em;
+			}
+		}
+
+		.road {
+			width: 100%;
+			min-height: 150px;
+			bottom: 0;
+		}
+	}
+`;
+
+export default OriginNo;
