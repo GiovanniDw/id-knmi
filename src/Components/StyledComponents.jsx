@@ -40,6 +40,7 @@ export const Section = styled.section`
 
 export const SmallSection = styled(Section)`
 	min-height: 50vh;
+	border: 1px solid red;
 `;
 
 export const LightSection = styled(Section)`
@@ -112,7 +113,7 @@ export const PositionSection = styled.div`
 	background-color: ${colors.white};
 	position: relative;
 	width: 100%;
-	overflow: hidden;
+	overflow-y: hidden;
 `;
 
 export const Button = styled.button`

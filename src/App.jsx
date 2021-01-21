@@ -77,10 +77,7 @@ export const App = () => {
 
 	// const [isInViewport, IntroRef] = useIsInViewport();
 
-	useEffect(() => {
-		setActiveCountry(countries[0]);
-		return;
-	}, [ScrollTrigger]);
+	
 
 	// useEffect(() => {
 	// 	isInViewport

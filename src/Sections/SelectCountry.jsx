@@ -47,7 +47,7 @@ const SelectCountry = (props) => {
 			duration: 0.5,
 		});
 
-		gsap.to(countryRef.current.childNodes, {
+		gsap.to(countryRef.current, {
 			y: 0,
 			opacity: 1,
 			scrollTrigger: {

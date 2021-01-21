@@ -42,11 +42,7 @@ const LuchtVervuiling = (props) => {
 	}, [sixthHeadingRef]);
 
 	return (
-		<Section>
 			<FlexContainer>
-				<SectionTitle alignSelf="flex-end">
-					<h2 ref={sixthHeadingRef}>
-						Hoe zit het met luchtvervuiling <br />
 						in {activeCountry ? activeCountry.name : 'Nederland'}
 					</h2>
 				</SectionTitle>
