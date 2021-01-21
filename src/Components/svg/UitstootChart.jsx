@@ -3,8 +3,6 @@ import useIsInViewport from 'use-is-in-viewport';
 import styled from 'styled-components';
 import { Controls, PlayState, Tween, Reveal } from 'react-gsap';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 const StyledTrigger = styled.div`
 	width: 100%;

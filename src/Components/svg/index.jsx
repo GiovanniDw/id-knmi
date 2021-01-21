@@ -1,10 +1,10 @@
 // import ContainerShip from './ContainerShip';
 
-export { CruiseShip } from './CruiseShip';
-export { PlaneRed } from './PlaneRed';
-export { PlaneBlue } from './PlaneBlue';
-export { Road } from './Road';
+export { CruiseShip } from './icons/CruiseShip';
+export { PlaneRed } from './icons/PlaneRed';
+export { PlaneBlue } from './icons/PlaneBlue';
+export { Road } from './icons/Road';
 export { NitrogenDioxide } from './NitrogenDioxide';
-export { ContainerShip } from './ContainerShip';
+export { ContainerShip } from './icons/ContainerShip';
 export { UitstootChart } from './UitstootChart';
 export { CovidMeasures } from './CovidMeasures';

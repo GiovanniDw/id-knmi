@@ -15,7 +15,6 @@ import { AppContainer, Section } from './Components/StyledComponents';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-
 import SelectCountry from './Sections/SelectCountry';
 
 import Belgie from './assets/Belgie.svg';
@@ -49,6 +48,10 @@ export const App = () => {
 	const appContainerRef = useRef();
 
 	const [isInViewport, IntroRef] = useIsInViewport();
+
+	useEffect(() => {
+		return gsap.registerPlugin(ScrollTrigger);
+	}, [ScrollTrigger]);
 
 	useEffect(() => {
 		isInViewport

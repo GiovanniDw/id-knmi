@@ -1,4 +1,5 @@
-import React, { forwardRef, useState, useEffect } from 'react';
+import React, { forwardRef, useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 import styled from 'styled-components';
 import useIsInViewport from 'use-is-in-viewport';
@@ -21,6 +22,29 @@ const Measures = (props) => {
 	// 	childRef.current = state;
 	// }, [state]);
 
+	const seventhHeadingRef = useRef();
+
+	useEffect(() => {
+		gsap.from(seventhHeadingRef.current, {
+			y: -100,
+			duration: 0.5,
+		});
+
+		gsap.to(seventhHeadingRef.current, {
+			y: 0,
+			duration: 0.5,
+			scrollTrigger: {
+				trigger: seventhHeadingRef.current,
+				// top refers to the element bottom refers to bottom of the viewport height
+				start: 'top 80%',
+				end: 'bottom top',
+				// markers: true,
+				scrub: 0.3,
+				toggleActions: 'restart pause reverse pause',
+			},
+		});
+	}, [seventhHeadingRef]);
+
 	return (
 		<SmallSection>
 			<FlexContainer
@@ -29,7 +53,7 @@ const Measures = (props) => {
 				justifyContent="stretch"
 			>
 				<SectionTitle alignSelf="flex-start">
-					<h2>
+					<h2 ref={seventhHeadingRef}>
 						Een pandemie verspreid zich wereldwijd en Nederland gaat
 						in de eerste lockdown.
 					</h2>

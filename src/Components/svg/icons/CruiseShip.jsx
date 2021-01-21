@@ -8,7 +8,8 @@ export function CruiseShip(props) {
 			viewBox="0 0 463 163"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			{...props}
+			className={props.className}
+			ref={props.selectChildRef}
 		>
 			<path
 				d="M10.489 72H463l-11.578 9.499a100.001 100.001 0 00-15.908 16.433L385.584 163H36.461L0 81.45 10.489 72z"

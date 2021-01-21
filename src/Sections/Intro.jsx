@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { colors } from '../GlobalStyles';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 import {
 	FlexContainer,
@@ -106,6 +104,7 @@ const Section = styled.section`
 		height: 100vh;
 		position: relative;
 		padding: 7% 7% 0 7%;
+		z-index: 99;
 	}
 
 	.InitialHeading {
@@ -117,8 +116,12 @@ const Section = styled.section`
 		font-family: 'Montserrat', sans-serif;
 		font-weight: bold;
 		line-height: 150%;
-		font-size: 2.2em;
+		font-size: 2em;
 		overflow-y: hidden;
 		color: ${colors.white};
+
+		@media (min-width: 768px) {
+			font-size: 2em;
+		}
 	}
 `;

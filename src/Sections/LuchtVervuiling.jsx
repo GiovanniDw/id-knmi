@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
+
 import styled from 'styled-components';
 import useIsInViewport from 'use-is-in-viewport';
 import {
@@ -17,12 +18,13 @@ const LuchtVervuiling = (props) => {
 	const { activeCountry } = props;
 	const [visibility, setVisibility] = useState();
 	const [isInViewport, useTriggerRef] = useIsInViewport();
+	const scrollTriggerRef = useRef();
 	const triggerRef = useRef();
 	const sixthHeadingRef = useRef();
 
 	useEffect(() => {
 		gsap.from(sixthHeadingRef.current, {
-			y: -100,
+			y: -150,
 			duration: 0.5,
 		});
 
@@ -33,9 +35,9 @@ const LuchtVervuiling = (props) => {
 				trigger: sixthHeadingRef.current,
 				// top refers to the element bottom refers to bottom of the viewport height
 				start: 'top bottom',
-				end: 'bottom top',
-				markers: true,
-				scrub: 0.3,
+				end: '+=20%',
+				// markers: true,
+				scrub: 0,
 				toggleActions: 'restart pause reverse pause',
 			},
 		});
@@ -46,7 +48,7 @@ const LuchtVervuiling = (props) => {
 	}, [visibility]);
 
 	return (
-		<SmallSection>
+		<SmallSection ref={scrollTriggerRef}>
 			<FlexContainer>
 				<SectionTitle ref={sixthHeadingRef} alignSelf="flex-end">
 					<h2>
@@ -79,7 +81,7 @@ const LuchtVervuiling = (props) => {
 							alignSelf="stretch"
 							justifyContent="center"
 						>
-							<StyledUitstootChart
+							<UitstootChart
 								forwardRef={triggerRef}
 								height="100%"
 								width="100%"

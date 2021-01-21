@@ -8,7 +8,8 @@ export function ContainerShip(props) {
 			viewBox="0 0 500 146"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			{...props}
+			className={props.className}
+			ref={props.selectChildRef}
 		>
 			<path fill="#F4F4F4" d="M15 49h148v77H15z" />
 			<path

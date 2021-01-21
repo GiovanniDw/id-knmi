@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { gsap } from 'gsap';
 
@@ -33,7 +33,7 @@ export const NoTwoExplination = () => {
 			scrollTrigger: {
 				trigger: secondHeadingRef.current,
 				// top refers to the element bottom refers to bottom of the viewport height
-				start: 'bottom 80%',
+				start: 'top 80%',
 				end: '+=50%',
 				// markers: true,
 				scrub: 0.3,
@@ -120,6 +120,7 @@ export const NoTwoExplination = () => {
 export default NoTwoExplination;
 
 const AlternativeSection = styled(Section)`
+	min-height: 90vh;
 	.NoDiv {
 		overflow-x: hidden;
 		position: absolute;
@@ -139,20 +140,20 @@ const AlternativeSection = styled(Section)`
 		flex-wrap: wrap;
 		position: absolute;
 		left: 0;
-		width: 50vw;
+		width: 50%;
 
 		img {
-			height: 30vh;
-			width: 50vw;
+			height: 30%;
+			width: 50%;
 		}
 	}
 
 	.textRight {
 		padding: 2em;
 		position: absolute;
-		top: 15vh;
+		top: 15%;
 		right: 0;
-		width: 50vw;
+		width: 50%;
 		color: ${colors.darkBlue};
 		background-color: ${colors.lightBrown};
 
