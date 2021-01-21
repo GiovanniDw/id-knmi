@@ -40,7 +40,6 @@ export const Section = styled.section`
 
 export const SmallSection = styled(Section)`
 	min-height: 50vh;
-	border: 1px solid red;
 `;
 
 export const LightSection = styled(Section)`

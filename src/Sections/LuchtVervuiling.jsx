@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 import styled from 'styled-components';
 import useIsInViewport from 'use-is-in-viewport';
 
@@ -15,7 +15,7 @@ import {
 
 import { UitstootChart } from '../Components/svg';
 
-export const LuchtVervuiling = (props) => {
+export function LuchtVervuiling(props) {
 	const { activeCountry } = props;
 
 	const [isInViewport, useTriggerRef] = useIsInViewport();
@@ -42,47 +42,49 @@ export const LuchtVervuiling = (props) => {
 	}, [sixthHeadingRef]);
 
 	return (
-		<SmallSection>
-			<FlexContainer>
-				<SectionTitle alignSelf="flex-end">
-					<h2 ref={sixthHeadingRef}>
-						Hoe zit het met luchtvervuiling <br />
-						in {activeCountry ? activeCountry.name : 'Nederland'}
-					</h2>
-				</SectionTitle>
-				<FlexItem flexGrow="1" alignItems="stretch">
-					<FlexContainer
-						ref={useTriggerRef}
-						flexDirection="row"
-						justifyContent="space-around"
-						alignItems="stretch"
-						alignContent="center"
-					>
-						<FlexItem
-							flexGrow="1"
-							justifyContent="center"
-							alignSelf="center"
+		<>
+			<SmallSection>
+				<FlexContainer>
+					<SectionTitle alignSelf="flex-end">
+						<h2 ref={sixthHeadingRef}>
+							Hoe zit het met luchtvervuiling <br />
+							in {activeCountry.name}
+						</h2>
+					</SectionTitle>
+					<FlexItem flexGrow="1" alignItems="stretch">
+						<FlexContainer
+							ref={useTriggerRef}
+							flexDirection="row"
+							justifyContent="space-around"
+							alignItems="stretch"
+							alignContent="center"
 						>
-							<img src={activeCountry.tropomi} />
-						</FlexItem>
+							<FlexItem
+								flexGrow="1"
+								justifyContent="center"
+								alignSelf="center"
+							>
+								<img src={activeCountry.tropomi} />
+							</FlexItem>
 
-						<FlexItem
-							flexGrow="1"
-							alignSelf="stretch"
-							justifyContent="center"
-						>
-							<UitstootChart
-								isInViewport={isInViewport}
-								height="100%"
-								width="100%"
-								uitstoot={activeCountry.uitstoot}
-							/>
-						</FlexItem>
-					</FlexContainer>
-				</FlexItem>
-			</FlexContainer>
-		</SmallSection>
+							<FlexItem
+								flexGrow="1"
+								alignSelf="stretch"
+								justifyContent="center"
+							>
+								<UitstootChart
+									isInViewport={isInViewport}
+									height="100%"
+									width="100%"
+									uitstoot={activeCountry.uitstoot}
+								/>
+							</FlexItem>
+						</FlexContainer>
+					</FlexItem>
+				</FlexContainer>
+			</SmallSection>
+		</>
 	);
-};
+}
 
 export default LuchtVervuiling;
