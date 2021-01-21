@@ -1,8 +1,9 @@
 import React from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { gsap } from 'gsap';
-
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 import { colors } from '../GlobalStyles';
 import styled from 'styled-components';
 import {
@@ -17,26 +18,27 @@ import NoTwoImage from '../Components/NoTwoImage';
 import { NitrogenDioxide } from '../Components/svg';
 
 export const NoTwoExplination = () => {
-	const secondHeadingRef = useRef();
-	const noTwoTextRef = useRef();
-	const noTwoImageRef = useRef();
+	const secondHeadingRef = useRef(null);
+	const noTwoTextRef = useRef(null);
+	const noTwoImageRef = useRef(null);
 
 	useEffect(() => {
 		gsap.from(secondHeadingRef.current, {
-			y: -150,
-			duration: 0.5,
+			y: -350,
+			duration: 0.1,
 		});
 
 		gsap.to(secondHeadingRef.current, {
 			y: 0,
 			duration: 0.5,
 			scrollTrigger: {
+				refreshPriority: -1,
 				trigger: secondHeadingRef.current,
 				// top refers to the element bottom refers to bottom of the viewport height
-				start: 'bottom 80%',
-				end: '+=50%',
+				start: 'bottom bottom',
+				end: 'center',
 				// markers: true,
-				scrub: 0.3,
+				scrub: true,
 				toggleActions: 'restart pause reverse pause',
 			},
 		});
@@ -120,6 +122,8 @@ export const NoTwoExplination = () => {
 export default NoTwoExplination;
 
 const AlternativeSection = styled(Section)`
+	position: relative;
+	min-height: 90vh;
 	.NoDiv {
 		overflow-x: hidden;
 		position: absolute;
@@ -139,20 +143,20 @@ const AlternativeSection = styled(Section)`
 		flex-wrap: wrap;
 		position: absolute;
 		left: 0;
-		width: 50vw;
+		width: 50%;
 
 		img {
-			height: 30vh;
-			width: 50vw;
+			height: 30%;
+			width: 50%;
 		}
 	}
 
 	.textRight {
 		padding: 2em;
 		position: absolute;
-		top: 15vh;
+		top: 15%;
 		right: 0;
-		width: 50vw;
+		width: 50%;
 		color: ${colors.darkBlue};
 		background-color: ${colors.lightBrown};
 

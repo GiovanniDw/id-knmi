@@ -22,7 +22,7 @@ const RemainingNo = (props) => {
 	// }, [state]);
 
 	return (
-		<SmallSection>
+		<Section>
 			<FlexContainer
 				darkTheme
 				alignItems="space-between"
@@ -59,7 +59,7 @@ const RemainingNo = (props) => {
 					</AnimatedContiner>
 				</FlexContainer>
 			</FlexContainer>
-		</SmallSection>
+		</Section>
 	);
 };
 

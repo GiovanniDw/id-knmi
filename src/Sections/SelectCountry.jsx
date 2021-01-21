@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 import useIsInViewport from 'use-is-in-viewport';
 import {
 	FlexContainer,
@@ -14,9 +16,9 @@ import {
 const SelectCountry = (props) => {
 	const { countries, setActiveCountry } = props;
 
-	const thirdHeadingRef = useRef();
-	const countryRef = useRef();
-	const buttonsRef = useRef();
+	const thirdHeadingRef = useRef(null);
+	const countryRef = useRef(null);
+	const startTriggerRef = useRef(null);
 
 	useEffect(() => {
 		gsap.from(thirdHeadingRef.current, {
@@ -27,22 +29,22 @@ const SelectCountry = (props) => {
 		gsap.to(thirdHeadingRef.current, {
 			y: 0,
 			scrollTrigger: {
-				trigger: thirdHeadingRef.current,
+				trigger: startTriggerRef.current,
 				// top refers to the element bottom refers to bottom of the viewport height
 				start: 'top bottom',
-				end: '+=50%',
+				end: '+=20%',
 				// markers: true,
-				scrub: 0.3,
+				scrub: 0,
 				toggleActions: 'restart pause reverse pause',
 			},
 		});
-	}, [thirdHeadingRef]);
+	}, [thirdHeadingRef, startTriggerRef]);
 
 	useEffect(() => {
 		gsap.from(countryRef.current.childNodes, {
-			y: 200,
+			y: 0,
 			opacity: 0,
-			duration: 0.7,
+			duration: 0.5,
 		});
 
 		gsap.to(countryRef.current.childNodes, {
@@ -52,8 +54,7 @@ const SelectCountry = (props) => {
 				trigger: countryRef.current,
 				// top refers to the element bottom refers to bottom of the viewport height
 				start: 'top bottom',
-				end: '+=80%',
-				// markers: true,
+				end: '+=50%',
 				scrub: 0.3,
 				toggleActions: 'restart pause reverse pause',
 			},
@@ -61,7 +62,7 @@ const SelectCountry = (props) => {
 	}, [countryRef]);
 
 	return (
-		<SmallSection justifyContent="stretch">
+		<SmallSection justifyContent="stretch" ref={startTriggerRef}>
 			<FlexContainer alignItems="space-between" justifyContent="stretch">
 				<SectionTitle ref={thirdHeadingRef} alignSelf="flex-start">
 					<h2>
@@ -79,7 +80,7 @@ const SelectCountry = (props) => {
 						ref={countryRef}
 					>
 						{countries.map((d) => (
-							<FlexItem darkTheme key={d.name} flexGrow="1">
+							<FlexItem darkTheme key={d.name} flexGrow="0">
 								<img
 									src={d.icon}
 									style={{ fill: 'blue' }}

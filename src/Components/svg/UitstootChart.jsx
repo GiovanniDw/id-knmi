@@ -3,8 +3,6 @@ import useIsInViewport from 'use-is-in-viewport';
 import styled from 'styled-components';
 import { Controls, PlayState, Tween, Reveal } from 'react-gsap';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 const StyledTrigger = styled.div`
 	width: 100%;
@@ -13,17 +11,17 @@ const StyledTrigger = styled.div`
 
 export const UitstootChart = (props) => {
 	const { forwardRef, width, height, isInViewport, uitstoot } = props;
-	const [triggerElement, setTriggerElement] = useState();
+	const [triggerElement, setTriggerElement] = useState(isInViewport);
 	const [progress, setProgress] = useState(0);
 	const prevProgress = useRef();
 	useEffect(() => {
 		prevProgress.current = progress;
 		setProgress(uitstoot);
 		setTriggerElement(forwardRef);
-	}, [forwardRef, uitstoot]);
+	}, [forwardRef, uitstoot, progress]);
 	// useEffect(() => {
-	// 	isInViewport.current = visibility;
-	// }, [visibility]);
+	// 	isInViewport.current = triggerElement;
+	// }, [triggerElement]);
 
 	return (
 		<svg

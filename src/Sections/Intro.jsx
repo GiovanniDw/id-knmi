@@ -5,7 +5,6 @@ import { gsap } from 'gsap';
 import { colors } from '../GlobalStyles';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-
 import {
 	FlexContainer,
 	flexItem,
@@ -15,14 +14,8 @@ import {
 import Gebouwen from '../assets/Gebouwen.svg';
 
 export const Intro = (props) => {
-	const { introRef } = props;
 	const headingRef = useRef();
 	const introSvgRef = useRef();
-	const [visibility, setVisibility] = useState();
-
-	useEffect(() => {
-		introRef.current = visibility;
-	}, [visibility]);
 
 	useEffect(() => {
 		gsap.from(headingRef.current, {
@@ -70,12 +63,9 @@ export const Intro = (props) => {
 		<Section className="FirstSlide">
 			<div>
 				<h1 ref={headingRef} className="InitialHeading">
-					<span ref={introRef}>
-						{' '}
-						Wat gebeurt er met luchtvervuiling <br />
-						wanneer een virus Europeanen <br />
-						dwingt om thuis te blijven?{' '}
-					</span>
+					Wat gebeurt er met luchtvervuiling <br />
+					wanneer een virus Europeanen <br />
+					dwingt om thuis te blijven?
 				</h1>
 				<img ref={introSvgRef} src={Gebouwen} alt="" />
 			</div>
@@ -103,9 +93,10 @@ const Section = styled.section`
 
 	&.FirstSlide {
 		max-width: 100%;
-		height: 100vh;
+		height: 101vh;
 		position: relative;
 		padding: 7% 7% 0 7%;
+		z-index: 99;
 	}
 
 	.InitialHeading {
@@ -117,8 +108,12 @@ const Section = styled.section`
 		font-family: 'Montserrat', sans-serif;
 		font-weight: bold;
 		line-height: 150%;
-		font-size: 2.2em;
+		font-size: 2em;
 		overflow-y: hidden;
 		color: ${colors.white};
+
+		@media (min-width: 768px) {
+			font-size: 2em;
+		}
 	}
 `;
