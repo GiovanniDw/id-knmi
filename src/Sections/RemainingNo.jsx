@@ -11,8 +11,17 @@ import {
 	SmallSection,
 } from '../Components/StyledComponents';
 
-import { Road, PlaneBlue, PlaneRed } from '../Components/svg';
-
+import {
+	Road,
+	PlaneBlue,
+	PlaneRed,
+	CruiseShip,
+	ContainerShip,
+	Car,
+	Bus,
+	Truck,
+} from '../Components/svg';
+import { Controls, PlayState, Tween, Reveal } from 'react-gsap';
 const RemainingNo = (props) => {
 	// const { childRef } = props;
 	// const [state, setState] = useState();
@@ -37,24 +46,23 @@ const RemainingNo = (props) => {
 				<FlexContainer
 					flexGrow="1"
 					alignItems="flex-start"
-					flexDirection="column"
+					justifyContent="stretch"
+					flexDirection="row"
+					alignContent="stretch"
 					darkTheme
 				>
 					<AnimatedContiner>
 						<div className="airport">
 							<Road className="road" />
 							<PlaneRed className="plane red" />
-							<PlaneBlue className="plane blue" />
 						</div>
 						<div className="airport">
 							<Road className="road" />
-							<PlaneRed className="plane red" />
-							<PlaneBlue className="plane blue" />
+							<Truck className="car blue" />
 						</div>
 						<div className="airport">
-							<Road fill="blue" className="road" />
-							<PlaneRed className="plane red" />
-							<PlaneBlue className="plane blue" />
+							<Road type="water" fill="blue" className="road" />
+							<ContainerShip className="plane blue" />
 						</div>
 					</AnimatedContiner>
 				</FlexContainer>
@@ -74,7 +82,7 @@ const AnimatedContiner = styled.div`
 	display: flex;
 	justify-content: space-around;
 	flex-direction: column;
-	align-content: space-space-around;
+	align-content: space-around;
 
 	.airport {
 		position: relative;
@@ -82,13 +90,20 @@ const AnimatedContiner = styled.div`
 		bottom: 0;
 		width: 100%;
 		overflow: hidden;
+		.car {
+			position: absolute;
+			width: 20%;
+			height: 60px;
+			bottom: 1em;
+			left: 50%;
+		}
 		.plane {
 			position: absolute;
-
+			width: 25%;
 			height: 100px;
 			bottom: 1em;
 			left: 50%;
-			width: 25%;
+
 			&.red {
 				left: 1em;
 			}

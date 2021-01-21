@@ -9,6 +9,7 @@ import LuchtVervuiling from './Sections/LuchtVervuiling';
 import Intro from './Sections/Intro';
 import Measures from './Sections/Measures';
 import RemainingNo from './Sections/RemainingNo';
+import DespiteMeasures from './Sections/DespiteMeasures';
 import { GlobalStyle, colors } from './GlobalStyles';
 import { AppContainer, Section } from './Components/StyledComponents';
 
@@ -118,6 +119,7 @@ export const App = () => {
 						<OriginNo />
 						<Measures activeCountry={activeCountry} />
 						<RemainingNo />
+						<DespiteMeasures activeCountry={activeCountry} />
 					</>
 				)}
 			</AppContainer>

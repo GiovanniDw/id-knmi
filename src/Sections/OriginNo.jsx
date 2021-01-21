@@ -32,7 +32,8 @@ const OriginNo = (props) => {
 	const movingElementFourRef = useRef();
 	const movingElementFiveRef = useRef();
 	const movingElementSixRef = useRef();
-
+	const startRef = useRef();
+	const endRef = useRef();
 	useEffect(() => {
 		gsap.from(fifthHeadingRef.current, {
 			y: -100,
@@ -62,7 +63,7 @@ const OriginNo = (props) => {
 		gsap.to(movingElementOneRef.current, {
 			x: 200,
 			scrollTrigger: {
-				trigger: movingElementOneRef.current,
+				trigger: startRef.current,
 				start: 'top bottom',
 				end: 'bottom top',
 				// markers: true,
@@ -80,7 +81,7 @@ const OriginNo = (props) => {
 		gsap.to(movingElementTwoRef.current, {
 			x: 200,
 			scrollTrigger: {
-				trigger: movingElementTwoRef.current,
+				trigger: startRef.current,
 				start: 'top bottom',
 				end: 'bottom top',
 				// markers: true,
@@ -98,9 +99,9 @@ const OriginNo = (props) => {
 		gsap.to(movingElementThreeRef.current, {
 			x: 200,
 			scrollTrigger: {
-				trigger: movingElementThreeRef.current,
-				start: 'top bottom',
-				end: 'bottom top',
+				trigger: startRef.current,
+				start: 'top center',
+				end: 'bottom bottom',
 				// markers: true,
 				scrub: 0.3,
 				toggleActions: 'restart pause reverse pause',
@@ -116,7 +117,7 @@ const OriginNo = (props) => {
 		gsap.to(movingElementFourRef.current, {
 			x: 200,
 			scrollTrigger: {
-				trigger: movingElementFourRef.current,
+				trigger: startRef.current,
 				start: 'top bottom',
 				end: 'bottom top',
 				// markers: true,
@@ -134,7 +135,7 @@ const OriginNo = (props) => {
 		gsap.to(movingElementFiveRef.current, {
 			x: 200,
 			scrollTrigger: {
-				trigger: movingElementFiveRef.current,
+				trigger: startRef.current,
 				start: 'top bottom',
 				end: 'bottom top',
 				// markers: true,
@@ -170,7 +171,7 @@ const OriginNo = (props) => {
 	// }, [state]);
 
 	return (
-		<SmallSection>
+		<SmallSection ref={startRef}>
 			<FlexContainer
 				darkTheme
 				alignItems="space-between"
@@ -212,7 +213,7 @@ const OriginNo = (props) => {
 								className="car blue"
 							/>
 						</div>
-						<div className="airport">
+						<div ref={endRef} className="airport">
 							<Road type="water" className="road" />
 							<CruiseShip
 								selectChildRef={movingElementFiveRef}

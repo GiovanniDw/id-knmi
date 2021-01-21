@@ -107,12 +107,18 @@ export const SectionTitle = styled(FlexItem)`
 
 	${(props) => (props.alignSelf === 'flex-end' ? 'text-align:right;' : '')}
 `;
-
+export const LightSectionTitle = styled(SectionTitle)`
+	background-color: ${colors.lightBrown};
+	color: ${colors.darkBlue};
+	margin-top: 2em;
+	margin-bottom: 2em;
+`;
 export const PositionSection = styled.div`
 	background-color: ${colors.white};
 	position: relative;
 	width: 100%;
 	overflow-y: hidden;
+	color: ${colors.darkBlue};
 `;
 
 export const Button = styled.button`
