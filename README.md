@@ -2,8 +2,7 @@
 
 Information Design Project KNMI
 
-![mockupimg](src/assets/mockup.png)
-
+![mockupimg](src/assets/mockupgif.gif)
 
 # Usage
 
