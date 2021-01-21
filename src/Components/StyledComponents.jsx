@@ -2,56 +2,129 @@ import React from 'react';
 
 import styled from 'styled-components';
 import { px2vw, colors } from '../GlobalStyles';
+
 export const AppContainer = styled.div`
-	display: flex;
 	flex-flow: column;
+	align-items: stretch;
+	max-width: 100vw;
+	scroll-snap-type: y mandatory;
+`;
+
+export const Intro = styled.section`
+	display: flex;
+	justify-content: center;
 	align-items: center;
+	margin: 0 auto;
+	min-height: 100vh;
+	min-width: 100vw;
+	background-color: ${colors.primary};
+	color: red;
 `;
 
 export const Section = styled.section`
-	padding: 5em;
 	display: flex;
-	min-height: 100%;
-	min-width: 100vw;
-	align-items: center;
-	text-align: left;
+	min-height: 100vh;
+	max-width: 100%;
 
-	flex: 1;
-	&.section-1 {
-		background: ${colors.primary};
+	align-items: stretch;
 
-		align-items: center;
+	justify-content: ${(props) => props.justifyContent || 'stretch'};
+	/* background-color: ${(props) => (props.bg ? colors.primary : 'white')}; */
+	background: ${(props) => (props.darkTheme ? colors.darkBlue : '')};
+	color: white;
+	padding-left: 7%;
+	padding-right: 7%;
+	/* border-top: 1px solid ${colors.lightBrown}; */
+	scroll-snap-align: start;
+`;
 
-		color: white;
+export const SmallSection = styled(Section)`
+	min-height: 50vh;
+`;
+
+export const LightSection = styled(Section)`
+	min-height: 50vh;
+	/* padding-top: 3em; */
+	background-color: ${colors.lightBlue};
+	color: ${colors.darkBlue};
+`;
+
+export const FlexContainer = styled.div`
+	display: flex;
+	overflow: hidden;
+	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
+	background: ${(props) =>
+		props.darkTheme ? colors.darkBlue : colors.white};
+	align-items: ${(props) => props.alignItems || 'stretch'};
+	align-content: ${(props) => props.alignContent || 'normal'};
+	justify-content: ${(props) => props.justifyContent || 'flex-start'};
+	flex-grow: ${(props) => props.flexGrow || '1'};
+	flex-direction: column;
+	@media (min-width: 768px) {
+		flex-direction: ${(props) => props.flexDirection || 'column'};
 	}
 `;
 
-export const GridContainer = styled.div`
+export const FlexItem = styled.div`
 	display: flex;
-	flex-direction: column;
-	max-width: 100%;
-	max-height: 100%;
-	flex: 1;
-	justify-content: space-around;
-	align-content: stretch;
-	/* margin: ${px2vw(32)}; */
-	/* height: 100%; */
-	/* max-width: 100%; */
-	border: 1px solid blue;
+	align-items: ${(props) => props.alignItems || 'stretch'};
+	/* flex-direction: column; */
+	justify-content: ${(props) => props.justifyContent || 'flex-start'};
+	flex-direction: ${(props) => props.flexDirection || 'column'};
+	padding: 1.5em;
+	color: ${(props) => (props.darkTheme ? colors.white : colors.darkBlue)};
+	background: ${(props) => (props.darkTheme ? colors.darkBlue : '')};
+	flex-grow: ${(props) => props.flexGrow || '0'};
+	align-self: ${(props) => props.alignSelf || 'auto'};
+	word-wrap: normal;
 `;
 
-export const GridRow = styled.div`
-	display: flex;
-	flex: 1;
-	min-height: 100%;
-	justify-content: space-between;
-	align-items: stretch;
+export const FlexTextItem = styled(FlexItem)`
+	background-color: ${colors.lightBrown};
+	color: ${colors.darkBlue};
+	align-self: center;
 `;
 
-export const GridCol = styled.div`
-	padding: 1em;
-	flex: ${(props) => (props ? props.size : 1)};
-	border: 1px solid red;
-	display: block;
-	align-items: stretch;
+export const SectionTitle = styled(FlexItem)`
+	color: ${colors.white};
+	background-color: ${colors.darkBlue};
+
+	width: 100%;
+
+	&.bottom {
+		padding-top: 1em;
+	}
+	&.top {
+		padding-bottom: 1em;
+	}
+
+	@media (min-width: 768px) {
+		max-width: 70%;
+		/* min-width: 50%; */
+	}
+
+	align-self: ${(props) => props.alignSelf || 'left'};
+
+	${(props) => (props.alignSelf === 'flex-end' ? 'text-align:right;' : '')}
+`;
+
+export const PositionSection = styled.div`
+	background-color: ${colors.white};
+	position: relative;
+	width: 100%;
+	overflow-y: hidden;
+`;
+
+export const Button = styled.button`
+	background-color: ${colors.darkBlue};
+	color: ${colors.lightBrown};
+	border: 0.2rem solid ${colors.lightBrown};
+	border-radius: 0.6em;
+	padding: 0.6em;
+
+	&:hover {
+		background-color: ${colors.lightBrown};
+		color: ${colors.darkBlue};
+		border: 0.2rem solid ${colors.darkBlue};
+	}
 `;
