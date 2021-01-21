@@ -2,6 +2,9 @@
 
 Information Design Project KNMI
 
+![mockupimg](src/assets/mockup.png)
+
+
 # Usage
 
 for earth engine you need a private key
