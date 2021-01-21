@@ -49,13 +49,13 @@ npm install
 
 run this command from `/id-knmi`
 
-**Start Server**
+**Start React**
 
 ```
 npm run start
 ```
 
-**Start Client**
+**Start Server & React**
 
 ```
 npm run dev
